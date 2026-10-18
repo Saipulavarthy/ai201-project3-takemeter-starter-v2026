@@ -1,0 +1,226 @@
+text,label,note
+"The Opus 5.5 posts about motion graphics are cool but Qwen 27B made this on a 4090
+
+Saw the hundreds of tweets where people just keep asking Opus 5.5 for motion graphic videos. Decided to ask qwen to look at them and make its own. Quite amazing what local can achieve. **EDIT** It looks laggy because of reddits .gif limit btw the full high res version (with sound) is here: https://x.com/mkultraware/status/2104192428664127555 Promted and built in: https://github.com/mkultraware/accuretta",analysis,ai-prelabel
+"48Gb VRAM speed AND quality ! (Qwen 3.8 27B Swift 1.5 W8A16)
+
+Hi, Because sometimes you need both speed AND quality, I made my own Qwen 3.8 27B Swift 1.5 quant. It's an 8 bits AWQ + GPTQ quant. Made with love and precision (read the model card) on my 4 RTX 3090, I believe it's the best compromise you can actually get on 48Gb of VRAM. Running it with vLLM and MTP on 2 RTX 3090 in my workflows and it's working flawlessly at almost 100 tok/s decode (with MTP=5), while being less an overthinker than the OG 3.8 27B :) Around 21.6Gb used per card (vLLM launched with 128k context and FP16 KV cache). https://huggingface.co/TacGibs/Swift-1.5-Qwen3.8-27B-W8A16 Hope it'll be usefull to someone else !",,
+"Make no mistake, selling 64 GB DGX Spark variants at the same cost as the original 128 GB is straight drug dealer behavior.
+
+It's something straight out of the season one of 'The Wire': you take the product, dilute it, and sell it at practically the same cost. It's some ""Stringer"" Bell shit. We should call the 64gbs ""Stepped-ons"" from now on.",,
+"SLM community telenovela: what do you guys think about this arguement?
+
+If there is something I like about the indie SLM community is there is always some drama every week about something. I mean, look, I don't like to disrespect others or their work, but this is some crazy statements made by banaxi-tech. here is the link to the HF discussion: https://huggingface.co/posts/AtAndDev/171445229116783",reaction,ai-prelabel
+"microsoft doubles down on local ai with nvidia, but with a cost
+
+link to article TLDR; new microsoft surface and nvidia rtx spark laptops are starting at 2.6k and hitting nearly 7k for the 128gb unified memory models. local llm hardware is REALLY getting wild. memory crunch is really pricing out normal devs. been testing out local setups using qwen3.6-27b and kimi k2.5 connected to sumus for managing repos locally and keeping everything on device. local inference is great for privacy and keeping things off the cloud, but at these prices building a local rig or buying these laptops is tough. what are you guys using for local dev workflows right now given these hardware costs?",reaction,ai-prelabel
+"Strata with Qwen3.8 Flash Next UD-Q4_K_XL
+
+Been seeing quite a few posts about Strata lately, so I figured I'd give it a shot on my RTX PRO 6000 and I am very impressed. Most of the benchmarks I've seen are using IQ2 or IQ3 quants, so I wanted to see how Unsloth's UD-Q4_K_XL performs instead. Setup:
+GPU: 1x RTX PRO 6000 Workstation (96GB)
+Model: Qwen3.8-Flash-Next UD-Q4_K_XL (Unsloth)
+Backend: Strata
+KV cache: INT8, 256K context
+Speculative decoding: MTP-4
+Output: ~256 tokens per task
+2 runs per task
+Single-request decode (C1): Task Strata (RTX PRO 6000) vLLM (RTX PRO 6000) vLLM (DGX Spark TP2) Prose 185.8 95.3 (-49%) 38.2 (-79%) Counting 320.4 171.0 (-47%) 75.3 (-77%) Coding 298.9 162.6 (-46%) 60.1 (-80%) Reasoning 289.1 149.6 (-48%) 51.8 (-82%) Both the VLLM instances were running Nvidia's NVFP4 quant so it's not exactly apples to apples, but the improved speeds are obvious. Qwen 3.8 flash next is flying through coding tasks and it's crazy how efficient it is. Looking forward to Qwen 4!",analysis,ai-prelabel
+"Cost of intelligence is dropping fast
+
+50% per quarter is amazing. 4× faster than DNA sequencing, 6× faster than compute, 18× faster than lithium batteries, and (up to 1973) 54× faster than electricity. https://x.com/EpochAIResearch/status/2102510281176023529 Every year moving forward is going to be significantly different that the prior year. What do you think? We will be running coding agents on our phones pretty soon.",analysis,ai-prelabel
+"Microsoft fumbles yet again, promising 80ms on their decision model, in reality serving 300ms on OpenRouter, losing to all other open source decision models. Who actually needs those Jev like models anyways?
+
+why does anyone care about latency?",analysis,ai-prelabel
+"Qwen Flash Next potential SOTA Q2 nobody talks about
+
+Whenever it comes to Strata and low bit QFN discussion, everyone is talking about Unsloth, ISTA-lab and nobody mentions Agantai with his GYRO series of quants - https://huggingface.co/agentionai/Qwen3.8-Flash-Next-Gyro-GGUF The quants allegedly have simultaniously better KLD, top 1 and lesser size than the ones from ISTA. Also enhanced loop resitance is advertised. Bold claims and signle contributor were the things why I was initially reluctunt to check the claims myselfm hovewer that potential space savings were impossible to resist so I downloaded GYRO-M and played around with it for a little while. My expersience with it: Before moving further, I'd like to share my serttings:
+Inference engine: GYRO fork of the Strata
+Quant used: GYRO-M
+Vision: yes, took it from ISTA lab IQ3_XXS quant
+Context: 200k
+KV cache quantisation: k8v4
+Agent: Pi agent
+Samplings: temperature: 1.0, top_p: 0.95, top_k: 20, min_p: 0.05
+Thinking: always xhigh
+Looping
+It never looped once during my 3 days of testing, longest autonomous cycle - 2-3 hours, author's claims seems to hold up Tool calls
+Generally stable, however it sometimes meeses up edits on Cyryllic texts(Russian, Ukrainian languages). Subjective impression - more stable than ISTA q2 quants, less stable than ISTA q3 because of Cyrillics problem Context retention
+No signs of braindeadness recorded, it never loses initial goal, almost always remembers all the nuances, instruction following is stable Performance
+As fast as ISTA 2 bit quants Example
+Prompt: ""create an animated voxel 3d world of a pelican riding a bike as good as you can""
+First photo is ISTA lab IQ3XXS
+Second one is ISTA lab IQ2XS
+Third one is GYRO-M Conclusion
+This quant is 100% alive and well and there are strong signals that it's indeed at ISTA lab q3 level while being much smaller, huge thanks for the author for his incredible job, he's a monster because this impeccable job was done by a !single man. It looks like sometimes a solo with skill, perseverance and purpose can go against the dedicated team and win",analysis,ai-prelabel
+"New paper from Stanford, Together AI, UIUC, and Meta introduces Hybrid Reasoning Agents. These AI models think mostly in a hidden internal way (faster and cheaper), and only use normal text when they need tools or give the final answer.
+
+On many tests (math, science, medicine, etc.), they score about 10% higher, use half the tokens, run twice as fast, and cost much less than regular models. mod here, paper link: [2610.18861] Hybrid Reasoning Agents original post on tech_x. EDIT: This method is an adaptation for current word-space reasoning llm. You can use if you trust the model, and avoid on a new model.",analysis,ai-prelabel
+"Running PR reviews on a local model: what i learned building an open-source code reviewer
+
+i built lgtmaybe, an open-source code reviewer, and a lot of the work went into making it usable on a local model. Big files get reviewed a hunk at a time, and big diffs get split to fit the context window, so a 27B model copes fine. The default is five model calls per review, which is fine on one GPU. Which local models have you found actually good at code review? Keen to pick better defaults. https://github.com/MattJColes/lgtmaybe",,
+"If you are not struggling for space, you might as well keep the full bf16 PLE, no? That's what I did. Had MiMo make a script like the ple_pf8-pack, but for bf16, downloaded the shards from Qwen's repo, ran the script, and I'm good to go.
+
+Can't speak on quality yet, since it's now working through the area it didn't struggle with before either, but the speed is the same. The only difference is that instead of ~0.3MB/s reads on the SSD, I see more like 1-2MB/s.",,comment
+"Yeah, it's a no-brainer, it basically gives you a free quant level at no vram cost. I was surprised that unsloth and other quant providers doesn't already publish it this way, at least optionally.",hot_take,comment; ai-prelabel
+"I personally swapped the 3rd shard in the Q5_XL (and up) quant with the 3rd shard from the BF16 release, and have been using it like that for awhile. Seems to work fine.",analysis,comment; ai-prelabel
+"Yeah, I think for q5 and upwards it works that way if I'm not mistaken. The other quants are more complicated because the table isn't in its own separate shard.",analysis,comment; ai-prelabel
+"And I used your script to move the PLE shard to last and then swap the files. You also have to change files index and file count when get the shard from another quant. llama.cpp does not check file count, but file index is needed.",,comment
+When Unsloth released the <=Q4 quants the code for instance in llama.cpp was still evolving. The PLE wasn't loaded from disk yet. Since >=Q5 the PLE was Q8 as put last in files.,analysis,comment; ai-prelabel
+I was confused reading the unsloth quant page when the model dropped as to why they weren't distinguishing them. Maybe they think lower filesize looks better and didn't want to break from the page template of their previous releases? Worse user outcome though.,,comment
+"it's almost like this ai rush hasn't attracted exactly the engineer types
+
+evergreen advice: ignore hype machine, don't trust clankers, always verify, test and benchmark on your own use cases",,comment
+"I keep running into the most basic problems with so many projects in this space. The en-gram thing is just the tip of the iceberg, a basic back-of-the-envelope estimate proves that SSD offload is trivially possible and loading them into RAM is pointless. My personal recurring gripe is the whole ComfyUI space where I am unable to use it or import a „ready to use“ workflow without LLM assistance.",hot_take,comment; ai-prelabel
+"RAM is not totally pointless for serving massively parallel requests while keeping the energy bill low
+
+IIRC PLE traffic is something like a few hundred kb per second per request, but the issue is that you want to keep the GPU fed quickly to maximise energy usage as idling takes energy too, so that's why all the big inference providers put PLE into RAM or at least keep a hot cache of engrams in RAM. Something like 1% of engram table is responsible for 80-90% of the traffic IIRC so the cache can be surprisingly small (but bigger than you'd expect because the 1% depends on the domain and you can be getting very varied requests if you're a generic inference provider)
+
+SO that's why all the RAM offload code exists. But it's true that SSD offload is good enough for a lot of the use cases here (which is like, mostly agentic coding...)",,comment
+"Ha, finally some engineering talk. The original design was for en-grams to be fully stored in RAM, in practice it turns out as you say the call distribution is wildly lopsided unlike with experts in MoE models, so storing a fraction in RAM is more practical for scaled down use. In my own testing for example I found you can trivially store the image encoder in RAM, for the occasional image in a prompt you lose barely a few ms in encode, in return you free up VRAM without turning your model blind.
+
+The fruit is quite low hanging for optimisations here.",analysis,comment; ai-prelabel
+"comfyui requires you to have knowledge on how diffusion models work. like if you literally take a course or do some self study, it becomes much clearer. otherwise it's a jumble of variables and spaghetti lines that nobody explains anywhere. i was its worst hater several years ago, now i think it's pretty okay. at the very least, you might wanna ask an llm about how to use it and what some of the variables mean. Unlike llm serving which has been nicely simplified for the end user now, comfyui is designed to allow the user to define what the inputs and outputs are with much more flexibility. it's closer to n8n if you know what that is.
+
+i also agree with the other commenter that you're probably looking at the slop workflows in the first place. the default templates with 5 boxes and lines work out of the box. whatever huge workflow you're looking at, you can treat it like a badly vibecoded pr to llama.cpp. might do something neat, no guarantee to work at all on your hardware.",,comment
+"Even though I mostly agree, unsloth brothers are real engineers. I suspect they haven't had time to think much about Qwen 3.8-Flash-Next yet",,comment
+Unsloth have lied before. Remember when they released a quant and claimed it was 2x faster when it was... like 7% faster because it was a higher quantisation?,,comment
+"I tested also that and no difference. The extra bits just vanish. 16 bits going to 4 bits. Puf! Gone!
+I even tried changing the 1 layer after n-gram to Q8 but no difference.",,comment
+"Interesting that this seems to be common knowledge among those who could run the model before Strata was released, lol.",,comment
+"well, i didn't know it either, but your question made me wonder :)
+
+i found ds4 with their qwen38-q4k model variant a already a pleasure to use (on medium effort level), so i had to know, if it's possible to further improve it.
+
+i just asked gemini:
+
+What quantization does antirez/ds4 uses for the n-gram table of Qwen 3.8 flash next q4?
+
+Why is it not using some 8 or 16 bit precision for the n-grams?
+maybe check the git history too, for the answer
+
+I wasn't asking in general. i'm talking about ds4 inference engine qwen3.8 flash next q4 n-gram table quantization specifically, which is streamed from ssd, so don't bullshit me with ""doesn't fit into the unified memory""! of course it doesn't; that's why it's streamed. duh.",,comment
+"I was personally horrified that the PLE table was quantized when I setup Strata, so I quickly swapped it out with Q8 version.",reaction,comment; ai-prelabel
+"thanks for the suggestion, i tested the ISTA-DASLAB IQ3_S with the shipped ple table, then the official FP8 and also with the BF16 table.
+
+i tested 2 ""hard"" questions from hmmt26 benchmark and 2 SWE Bench coding challenges with each run, and in the sweep i also tested with uncapped reasoning tokens, 32K and 16K capped reasoning.
+
+the results were interesting: with FP8, the challenges did complete at uncapped reasoning with fewest tokens used, BF16 PLE used the most tokens, with the shipped PLE table in the middle. the answers were correct for all PLE Table configs, so no question was answered wrongly.
+
+that shifted when i introduced reasoning caps at 32K and 16K, then the model became unreliable in the answer (in one run on the same question the model answered correct, in another with same sampling configs wrong), but inconclusive which PLE Table gives the best quality under a reasoning cap of 32K and 16K. the only correlated finding is, the lesser reasoning tokens you allow, the more unrealiable the model becomes regardless of the PLE Table quant, at least from the benchmark questions i gave the model.
+
+all i can say is that i will be using the FP8 PLE Table from now on with ISTA IQ3_S.",,comment
+"the performance did not really change much based on which PLE Table is loaded, also for RAM/VRAM usage nothing changed really between shipped PLE/FP8/BF16 as the PLE Table sits on SSD.",analysis,comment; ai-prelabel
+"Unfortunately only 2 tests, so take that what you will, with opencode, xhigh.
+
+Single page html Angry bird game with correct physic, somehow even GPT 5.6 Sol is having a hardtime with this. Anyway.
+- GSQ-RCO-Coder. Multi prompt, 8-9 tries to get it somewhat correct
+- IQ4 with IQ4_NL PLE, 2 prompts
+- IQ4 with Q8 PLE, 2 prompts, but the 2nd prompt is only clearing up small detail from 1st prompt.
+
+FSDP FP8 custom tensor subclass pack unpack routine. So this is much more what i do daily, so i can guess the model capability without it being connected to PyTorch documentation RAG.
+
+- GSQ-RCO-Coder. Absolute pain, 15-16 prompts, with me manually reviewing and guiding the correct padding and tensor group block size. at this point it had to be connected to RAG, syntatically and logically speaking it correct but the knowledge isn't there yet.
+- IQ4 with IQ4_NL PLE, 3 prompts.
+- IQ4 with Q8 PLE 2 prompts.
+
+But from my test what i conclude is, GSQ RCO Coder is pain instead of pitting Q8 PLE vs Q4 PLE",analysis,comment; ai-prelabel
+"Thanks, very interesting, mirrors my anecdotal noob experience. I'll have to look into benchmarking and a/b tests to accurately measure these quantization nuances.
+
+I decided against the smaller coder model for fears of it being cut too much, seems that gut feeling was right when I hear your experience with it. But it probably also has it's uses.",reaction,comment; ai-prelabel
+"I also should mentioned, GSQ RCO when it comes to webdev stuff is pretty much identical to its full expert brethren. So if you are mainly building ThreeJs, API, Web, React, etc then it is a good model. And ofc my personal use cases is kinda ""out of distribution""
+
+
+That animated video is are created by GSQ-RCO Coder using GSAP. and it is quite good",hot_take,comment; ai-prelabel
+"glad it mirrors, and honestly ""anecdotal noob"" beats most published evals in this space. tip from the trenches if you do the a/b: freeze quant and temperature, move one knob per run, and put the exact prompt in the file name. future you reads those, past you doesn't. if you write it up, ping me, i'll rerun it on my box and we compare notes.",hot_take,comment; ai-prelabel
+"oops, that's what Grok told me or rather I didn't check, sorry!
+
+In llama.cpp / mixed-quant repos, BF16 PLE sidecars (~95 GiB, mmap from SSD) are real and people measure a clear quality win. In Strata, the supported “don’t quantize the table hard” upgrade is --ple-gguf → FP8 (or Q8_0), not a documented BF16 95 GB GGUF loader. So: take the comment seriously (don’t run with IQ4_NL PLE if you care about quality), but on Strata implement it as FP8 or Q8_0 via --ple-gguf, not by hunting for a BF16 file unless you confirm your exact Strata version accepts BF16 PLE rows.
+
+My bad!",,comment
+"I'm running the model at q6 with q6 ngram, and it's working very well, it's noticeably better than the q4 with q4 ngram I was running before. I doubt there's much more to squeeze out of it though.",,comment
+"I tested it yesterday actually (but Q8 instead of FP8, from this repo https://huggingface.co/sleepyeldrazi/Qwen3.8-Flash-Next-GSQ-RCO-Q8_0-PLE-GGUF and GSO-RSQ IQ3_S quant )
+
+There was no difference in code (JavaScript, bash, powershell), there was a very small difference in English prose and small difference in Polish prose. The issue is that I'm not fully confident with these KLD/topK results as I tested against Alibaba Cloud Qwen 3.8 Flash and they say its ""production ready with native 1M context"" version, idk if that ""production ready"" is different weights or its the same shit.
+
+Benchmarks I tested (HMMT, DeepSWE-mini) didnt change at all.
+
+I also heard from friend that with Q8 PLE Finnish is a little bit better.
+
+Anyways, IMO it's barely noticeable overall, feel free to test on your own tasks/language. I will test bf16 PLE soon, now I'm testing different flags in Strata",,comment
+"This is the LocalLLaMA sub, king.
+
+Post your setup, poor, jank, or expensive overkill. I saw a guy the other day have 4 clustered mini PCs that were running Qwen 35b at 4 tok/s and he was super stoked about it.",,comment
+I managed to get a PS5 for 250. The trickiest part is finding one that hasn't been online in awhile and is still using the older firmware. Their dirt cheap right now.,analysis,comment; ai-prelabel
+Bc-250 is also used in a ps5 + its a single board computer so you can run linux without any issue,analysis,comment; ai-prelabel
+"Anthropic ran a 26B on 15 $55 smart TVs. The intent of the article was to raise more fud around local models, but my takeaway was I need to start buying TVs
+
+https://www.anthropic.com/research/self-replicating-ai",,comment
+"Thats performance is normal, these GPUs are 11 year old. They just look beefy, but your phone has better compute.",analysis,comment; ai-prelabel
+Lol. I love seeing people hack together things. The ingenuity is amazing. Results are unusable but i do enjoy reading it :) i started reading here and then got and rtx pro 6k and 5090 but the engineering here with crazy ideas sometimes makes it into my runtime.,reaction,comment; ai-prelabel
+"Dual tesla P100s, purchased when they were ~$80 a piece. Qwen3.6 35b A3B Q4 at 170-200 t/s generation. Heavily optimized build of llama.cpp to make that happen. Cheap builds are doable.",,comment
+"Check my post history. Have a repo; point your agent at it. Outputs from the model aren't exact to stock llama.cpp, but the actual quality of the outputs don't seem altered.",,comment
+"I can attest to that. Just after the price of memory started to climb I was able to buy a used ""computer"" (minus gpu, keyboard, case, psu) with Ryzen 5950x and 128 GB DDR4-3600 c16 memory and x570 motherboard for what now is about US$ 530. I can buy similar memory (but c18) new for about US$ 3,460 locally. Imagine what a AI cluster of 6 such machines could do. OK, I would need GPUs but they can be PCIe 4...",analysis,comment; ai-prelabel
+Similar here. I grabbed a threadripper system with 64gb ddr4 and another system with 128gb and a titan rtx just before prices on all that went crazy. I just priced out another one with all used gear a few days ago and holy shit.,,comment
+"I had an almost identical motherboard already and are in the market for another 5950x... a cluster with two 64 GB machines that can work standalone or in tandem can be interesting. Now, GPUs are a different ballgame...",,comment
+"Ha, I've been looking for another one as well. I got ""stuck"" on AM4 but it played out pretty well when ddr5 started going crazy.
+
+And yes, gpus are a whole other thing :) good luck",,comment
+"oh thank you! i’m happy here tho. i have nothing against insane builds, just wanted to point it out for the lurkers to not get discouraged. i think you can see from my top 1 percent commenter badge im pretty happy lol",reaction,comment; ai-prelabel
+"Idk why you think 9060-16 is low end. Thats a solid inference card. New architecture, 16GB memory. I bet it works wonders",analysis,comment; ai-prelabel
+each to their own but 650t/s prefill is pretty damn slow and 300t/s is basically unusable unless you're getting it to work on something overnight,,comment
+"Yeah, for Hermes or Openclaw 1k prefill is the minimum I can tolerate lol. If what you're doing doesn't regularly send a huge system prompt I guess 300-600 might be ok",,comment
+"Ah, I reread it. I 300tps prefill is pretty rough but not totally useable. If you know you’re getting ready to cold start a 200k session, go make a cup of coffee for ~5 min.",analysis,comment; ai-prelabel
+"Wait... you didn't even consider that the 24gb of ddr5 system properly cost more!
+
+So, yes there full setup bought at today prices is likely $2000 min.",,comment
+mmm not quite. more like 1100. easily can get away with 32gb quad channel ram on an old xeon and get the same performance,,comment
+"Yeah, it is sort of clickbait ig. definitely not the cheapest way to run 3.8 27b, but compared to even 1 3090 it’s much cheaper. i got mine for 350 before gpu shortage as well for gaming",analysis,comment; ai-prelabel
+"You can buy 4x P100 16GB, total 64GB vram, for 400 bucks and run qwen flash Q4 with engram on disk. Ram is even more expensive than vram these days. Old datacenter hardware is a true gold mine. Any gaming related gpu, even few years old, is still expensive.",analysis,comment; ai-prelabel
+"48 lane pcie switch for 150-200 bucks. Imho the most underrated component of all for localllama users. You can run almost unlimited amount of gpus from single slot on a normal ryzen motherboard, you don't need crazy overpriced threadrippers. You are limited only by your mmio space really, and power is also not a problem because with single stream pipeline parallel you only use one gpu at a time. So for 4x250W gpus, having like 650-750W psu is fine, since your average power will be like 350-450W.
+
+If you already have Amd hardware then Mi25 or Mi50 16GB are the P100 equivalents.
+
+But of course, if you only want to run stuff on hardware you already own then that's a software question. I was just responding in ""cheapest way you can run big models"" way.",,comment
+"I think it's the tendency of the demographic. If you are tech savvy and interested enough to spin up your own local LLM, it's very likely that you also enjoy maximizing your rig",,comment
+"Did you rebuild your llama.cpp with the asymmetric KV cache combination you're using?
+
+It's a combination i was interested in (well q8_0 q4_1) but it's apparently not a fa cache quant combination that's built by default nor are symmetric q4_1, q5_1, q5_0, so i tried it out. Speed Seems to not break down so quick as context grows.
+
+I don't have a more modern Radeon so I can't say if it will impact you as much, it's well worth it for me to spend a little extra time compiling for that.
+
+I'd look into it if you keep running asymmetrical K/V pairs.",,comment
+"A CPU with 32GB of DDR4+ RAM unlocks some great, relatively fast MoE models like Qwen 3.6 35b.  Add in a modest 8GB+ VRAM GPU and you can run even faster, with only 16GB system RAM.
+
+Even pure CPU inference on an 8GB system can run 4B - 8B models, so the hobby is pretty much open to anyone with a PC.",,comment
+Just tell alibaba to release 3.8 or 4 35b-a3b. No one wants to run 3.6 when you can get better.,hot_take,comment; ai-prelabel
+"4.0 35B (or 25B!) with a huge on-disk engram table would be awesome.  Just like MoE, I don't think we've reached the limits of in-memory vs engram sparsity yet!",hot_take,comment; ai-prelabel
+"The worse and more jank your setup is, the more creative and impressive what you run and what speed is.",hot_take,comment; ai-prelabel
+"I have an uncensored Qwen 3.8 27B at Q4_K_M running and I'm really, really happy with it. I don't have benchmarks or anything. I'm just having a lot of fun with my assistant. I have some VRAM to spare for Chatterbox TTS to run, also, and I get good performance with that, too.
+
+7900 XTX
+
+64GB DDR4",reaction,comment; ai-prelabel
+"I advice you to actually get any MOE model instead of Qwen3.8-27B. At these speeds and speacially the prefill is very hard to work with honestly.
+
+I have Qwen3.8-27B at about 61tps and prefill about 600 at 60k context and it's so slow it's driving me crazy honestly.
+
+With Qwen3.8-Flash-Next I'm getting about 90 tps and 3600 prefill at all context. Very stable both tps and prefill for the same 128k context with strata.
+
+I also added vision and it dropped a little to 84 or something. But this makes the model does everything instead of relying on Qwen3.5-4B on my second small gpu.
+
+I haven't tested both heavily. specially the Qwen3.8-27B since the prefill is too low for hermes agent.
+
+But using opencode I found Qwen3.8-Flash-Next is way better than Qwen3.8-27B at the same quant.
+
+Like it's miles away better in opencode. Also way faster.
+
+So yeah test the Qwen3.8-Flash-Next if you can run it you'll ditch Qwen3.8-27B which was a blessing to use. But Qwen3.8-Flash-Next with starta is a life safer.",analysis,comment; ai-prelabel
+"12GB vram. Might be able to get it working with 8, but you would have to directly modify the code and I'm not sure it would run well.",,comment
+5080 would make it not that much slower then something like claude. the sad part is my setup is already faster then chatgpt sol. there’s a shortage of compute for them too,,comment
+any old or newish DDR4 or DDR5 (typically makes little difference for the most part) gaming PC with two x8 slots or one x8 slot and one x4 slot and two 16GB cards and you really have a beast,,comment
+"I run something like that, with 2x RDNA2 GPU, so I have slow prefill hence I've build an extension that caches initial prompt process for both Pi and Opencode.
+
+Oh and for the vRAM poor people I've made a MTP version for QWEN 3.x llama.cpp that uses less vRAM.",hot_take,comment; ai-prelabel
+"Z420 mobo open bench build with 32gb of ddr3, a gtx 1070 and a Nvidia Tesla p100 on llama.ccp gets me running about 12 models, with ornith 1.5 35b a3b running around 45-50 TPS. Build only cost 170.
+
+Learn and get your feet wet for under 200 bucks then keep adding onto it as you learn/need more vram. I can upgrade the gtx 1070 to a second p100 or a p40 for a higher vram configuration",,comment
