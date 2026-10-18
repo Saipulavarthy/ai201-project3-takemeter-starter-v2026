@@ -109,7 +109,7 @@ Additional rules:
 **Where the posts came from:** Community: r/LocalLLaMA. I read about 35 posts from the Hot feed in October 2026 before choosing labels. Pure help questions (for example "what model fits my A2000?") fit none of the three labels, so I skip them when collecting. A question that makes a claim with evidence can still be labeled. Candidate distinctions I noticed while reading: posts that report measured numbers versus posts that don't; claims backed by a described test versus claims just asserted; immediate reactions to news versus posts that work out what evidence would settle a question; and help questions with detailed setups versus one-line questions.
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+Say so plainly — the disclosure is required, not penalised. --> Some rows were pre-labeled by an AI assistant and then reviewed by me, as described in the disclosure under How I Used AI. The data is a mix of posts and comments from r/LocalLLaMA. Comments are marked comment in the note column. Comments under 20 words were skipped so that short length would not become a shortcut for any label.
 
 **Counts per label:**
 
@@ -177,17 +177,17 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked an AI chat assistant to write eight realistic r/LocalLLaMA posts that sit on the boundaries between my three labels, without telling me which label each was meant to be.
+- *What came back:* Eight posts. I labeled all eight myself using only my definitions and decision rule, and I hesitated on seven of them. The hesitations clustered around three gaps: what counts as checkable, whether being set off by news makes a post a reaction, and vague gestures at evidence.
+- *What I changed:* I added three rules under my decision rule: checkable means something a reader could look up or re-run, a post is labeled by its main claim, and being triggered by a release does not make a post a reaction.
 
 **Moment 2**
 
 - *What I asked for:*
 - *What came back:*
-- *What I changed:*
+- *What I changed:* I stopped treating those rows as my own cold labels. They are recorded as AI pre-labels, and I am reading each one and correcting the ones I disagree with.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** 36 rows of labels.csv were pre-labeled by an AI coding assistant, not by me. I am reviewing and correcting every one, and their note column records this. No cold pass is claimed here until I have hand-labeled 20 rows myself without AI.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
