@@ -93,6 +93,11 @@ TakeMeter sorts posts from r/LocalLLaMA, a public subreddit about running AI mod
      if the tone is heated." -->
 a number or fact only makes a post analysis if the post uses it to support a claim. If the numbers are just context for a feeling, it is reaction.
 
+Additional rules:
+- Checkable means something a reader could look up or re-run: a named model, quant, hardware, quote, link, or spec figure. The author does not have to have measured it, but it must be used to support the claim. A vague impression with no specifics does not count.
+- Label a post by its main claim. One unsupported opinion sentence at the end does not change a post that is otherwise backed by specifics.
+- Being set off by a release or news does not make a post reaction. Remove the feeling words (for example "so tired of this" or "lol"). If a verdict remains, it is hot_take. If nothing claim-like remains, it is reaction.
+
 
 ---
 
