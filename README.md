@@ -42,7 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-
+TakeMeter sorts posts from r/LocalLLaMA, a public subreddit about running AI models locally, into three labels: analysis, hot_take, and reaction.
 
 ---
 
@@ -54,34 +54,44 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `analysis`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** makes a claim and backs it with something specific and checkable, like a measured speed, a config, a described test, or a quote.
 
 **Example 1:**
->
+> a post listing tokens per second for specific CPUs and linking pull request numbers.
 
 **Example 2:**
->
+> a post arguing that tool templates matter more than the model, with a described test setup and tool-call failure counts.
+
+### `hot_take`
+
+**Definition:** a confident claim or verdict with nothing offered to support it. It might be true, but it isn't argued.
+
+**Example 1:**
+> TBD.
+
+**Example 2:**
+> TBD.
+
+### `reaction`
+
+**Definition:** an immediate response to news or an event where the feeling is the content, such as shock, excitement, or complaint.
+
+**Example 1:**
+> a post expressing shock at GPU price jumps, where the numbers only serve the venting.
+
+**Example 2:**
+> TBD.
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** analysis vs. reaction
 
 **The decision rule I used every time:**
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
-
+a number or fact only makes a post analysis if the post uses it to support a claim. If the numbers are just context for a feeling, it is reaction.
 
 
 ---
@@ -91,7 +101,7 @@
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** Community: r/LocalLLaMA. I read about 35 posts from the Hot feed in October 2026 before choosing labels. Pure help questions (for example "what model fits my A2000?") fit none of the three labels, so I skip them when collecting. A question that makes a claim with evidence can still be labeled. Candidate distinctions I noticed while reading: posts that report measured numbers versus posts that don't; claims backed by a described test versus claims just asserted; immediate reactions to news versus posts that work out what evidence would settle a question; and help questions with detailed setups versus one-line questions.
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
