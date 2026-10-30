@@ -224,3 +224,151 @@ Oh and for the vRAM poor people I've made a MTP version for QWEN 3.x llama.cpp t
 "Z420 mobo open bench build with 32gb of ddr3, a gtx 1070 and a Nvidia Tesla p100 on llama.ccp gets me running about 12 models, with ornith 1.5 35b a3b running around 45-50 TPS. Build only cost 170.
 
 Learn and get your feet wet for under 200 bucks then keep adding onto it as you learn/need more vram. I can upgrade the gtx 1070 to a second p100 or a p40 for a higher vram configuration",,comment
+"They are trying to create an asset out of it which means artificial scarcity. Look at amazon buying gpus and then renting them back to themselves.
+
+I hope anti compete comes after all these guys once we have some politicians with a spine.",,comment
+"This is not artificial scarcity, overall they are not lowering the production. They will produce more Pro cards where the demand is higher instead of consumer cards.",,comment
+"It’s what people are willing to pay for the same part increasing. The finite resource is the die and the VRAM. Circuit boards and everything else can be produced in the needed volume, however we can’t make enough high end chips for both pro series and 5090’s, so the 5090 is the cheaper option to cut. Plus the pro series cards have a few nicer features enabled in software for corporate use and could be used in place of a 5090",,comment
+…because the RTX Pro line has a higher equilibrium price because demand is higher.,,comment
+the margins are higher because the demand is higher. there are simply more buyers willing to pay a higer price for a comparatively low amount of gpus. price increase and thus higher margins is a natural consequence for a scarce resource that is suddenly under higher demand than before.,,comment
+"Wait what? There is plenty of demand for the 5090. Just look at the MSRP vs what it actually costs to get one.
+
+There's a clear indicator that demand is ~2x the MSRP.
+
+The same for the RTX Pro series.
+
+The core difference is the markup. The Pro series is manufactured end to end BY NVIDIA.
+
+You don't buy an Asus RTX Pro.
+
+All of that margin, dealing with 3rd parties, etc is pushed back to Nvidia profits and marked up.",,comment
+"There's plenty of demand. More demand than they can fulfill. There's definitely scarcity. But it's not artificial scarcity.
+
+Artificial scarcity would be if they have the ability to make twice as many graphics cards as they currently are, and they choose not to. But that's not what happening. They're making as many as they can and the demand is still outpacing supply.",,comment
+There's no artificial scarsity. The price difference between 6000 Pro and 5090 is multiple times more than the price of VRAM chips; and it has early endless demand. It's just plainly more profitable to make 6000 Pros.,,comment
+Demand in China for those gpus is in the millions and the Chinese government gave their companies approval to buy them.,,comment
+"It’s not artificial scarcity. If Nvidia could make more, they would. TSMC is the bottleneck",,comment
+"Until it suddenly isn’t, and then someone somewhere will be left holding the biggest bag of garbage ever assembled.
+
+At some point, the investors who currently value OpenAI and Anthropic at $2 trillion each are going to want to see returns matching that valuation (and a concrete plan for how those companies will ever pay back their debts). That’s going to be a tough day.",,comment
+"That's going to be a tough set of months for a lot of people when you look at who holds the debt and how that translates through the market.
+
+I expect the initial discovery phase will be slow as more and more people who hold the debt are exposed.
+
+Anthropic's debt is extremely opaque. There's a huge chunk that I believe Blackrock owns. It's not clear because of the structure of the debt.
+
+Blackrock wanting them to get listed while having their own fund buy the stock, etc is a definite conflict of interest.",,comment
+"Don't worry, in the end the American taxpayers will pay the bulk of it when we bail out a bunch of these companies/oligarchs when the bubble pops.",,comment
+"Didn't happen to Tesla and they have been worth as much as the next 10 car companies combined for years. There's no reality involved in these valuations. No one gives a shit. Elon Musk was like ""uh yeah we're not making cars anymore, we're doing robots or something"" and Tesla is still worth 14 times as much as Ford. Where are the Tesla robots? No one gives a fuck.",,comment
+"They aren't even valued particularly aggressively relative to their revenue though? And margins are reportedly very high. I don't think either company has had any notable issue paying the carrying cost for the capital they've spent on models they've already built.
+
+You build a factory and you pay off the debt with the income from the factory - I'm not sure I understand what you think is different about these capital expenditures.",,comment
+I don't understand what you are rambling about. I have a bunch of 32gb radeon AI card and they have massive utility when used with LLMs. It isn't just some fictional thing. The utility of AI and the devices that are required to run AI are an actual thing.,,comment
+"I knew the consumer GPU market was completely frozen (the 5090 almost two years old and the new generation will take another 1-2 years to come out), but I wasn't expecting it to go in reverse...
+
+It's honestly not surprising in the current market, 5090 cards were already disappearing (availability) and had some insane prices associated with them... Locally they are now €6500+, but I've seen regions where they are listed at €9k+.
+
+Yeah... Not buying anything remotely new any time soon!",,comment
+Rumor is the 5090 can be modded to 64GB so I assume this also had an impact.,,comment
+"If you are talking about sketchy online listings from alibaba, I never saw anyone confirm this. If anything, it sounded like a classic scam.",,comment
+"I have bought modded VRAM cards from Alibaba. In private, the ""biggest"" card my trusted supplier offered me to buy was 4090 48GB. It was like half a year after the first ""5090 96gb"" listings appeared there. I prefer to think that extra-vram 5090 isn't available yet, otherwise they would've offered me to buy it.",,comment
+"please dont think that just because card A can be doubled in capacity a card B can. Theres a lot that must align for any card to be upgradable, and 5090 is not one of those.",,comment
+"Any high-end Nvidia gaming GPU can be doubled up - either by using custom PCB with 2 chips per memory channels (Nvidia pust only 1 chip per channel on many of the models), or by using the chips that have double the memory capacity. The catch is VBIOS: you need to acquire a bios that has memory config for the mod you've got, and, given that all bioses since Ampere are cryptographically signed, that's the hardest par of the mod.",,comment
+"Only thing that stopped 5090 of being modded is drivers encryption that got stronger in 50xx series. When\IF it will be cracked, expect 96gb variants flood aftermarket.",,comment
+"The 5090's upgrade path isn't the same as many others.
+
+That doesn't mean it's impossible.",,comment
+"I don't know about online listings on Alibaba, but VRAM modding is a real thing. Gamersnexus covered it in his GPU smuggling documentary.",,comment
+"I saw this rumoured months ago, looked into it and learnt that it won't become possible until higher capacity DIMMs become available, something about there are are not additional locations on the board where ""extra"" DIMMs can be attached to lanes (I think this is the right terminology, I mean chips and connectors, anyway), and even once higher capacity (3GB iirc) DIMMs are available, they'll be at the cutting edge and so, it'll be cost prohibitive for some time.",,comment
+"What I've seen from recent modded RTX 4090 48GB cards is that they ditch the entire card except the GPU and the RAM and build it up on an entirely new card. Also the price difference between such a 48GB RTX 4090 was not that far removed from a 96GB RTX 6000 PRO when you look at the price per GB. That's been a few months ago though. I'm currently seeing RTX 6000 PRO 96GB going for €18k, while the RTX 5090 32GB is going for €6.5k. Add to that no warranty, the risks, the compatibility issues, more power required, and the lesser performance. I would not even go for a 5090 at this time (IF you have the money for it), especially not for some shaky mod job...
+
+I've modded hardware in the past (AMD CPUs) and if at all possible I would like to avoid that at all costs!",,comment
+"Taking over the world market, which is ultimately far more valuable than sealing themselves in.",,comment
+Destroying the US economy by causing our insane overvaluation of AI companies to crash is a far greater prize.,,comment
+"The President is doing a fine job of crashing our economy all by himself, there's literally zero need for China to get their hands dirty.",,comment
+"If that were true, then Nvidia wouldn't be doing everything they can to stick it to consumers, and would instead try to satisfy both markets.",,comment
+I don't think Chinese companies have any less interest in price gouging than American ones do.,,comment
+"Yet if they sell for cheaper, they will steal the market from under the Americans.",,comment
+this is china's best chance to take up market share with their huawei gpus at a reasonable price.,,comment
+"haha, amd lol. i swaer amd doesn't even try to compete with nvidia anymore and just follows their leads",,comment
+"R9700 is very competitive, and AMD didn't even have to try hard, yet still managed to release something affordable and usable on the consumer market.
+
+I'm saying this as I'm running a swarm of agents using Qwen-3.8-Flash-Next fully locally at 500 tps. This is on par with Opus 4.6 but without the cloud dependency. All for the price less than one RTX 5090.",,comment
+"You're judging a transition phase as a permanent surrender. NVIDIA dominates because CUDA unifies their entire enterprise and consumer ecosystem. AMD is literally resetting their pipeline with UDNA to merge RDNA and CDNA and do the exact same thing.
+
+You never know, I wouldnt claim AMD ""arent trying to compete"" just yet.",,comment
+It'll take a long time before they fulfill demand in their own market with a billion people.,,comment
+Maybe the 5090 SE and 5080 SUPER were real - but only because it'll be a smaller die,,comment
+"This is why monopolies are bad. Too few companies doing things like designing GPUs, manufacturing GPUs, manufacturing RAM, etc. it's also why closed APIs like CUDA have screwed the consumer. I refused to buy nVidia for their anti-consumer proprietary behavior for a decade and a half because of it. I refuse to buy Apple for similar. AMD is significantly more consumer friendly but that doesn't matter when their market share for GPUs has kept descending to an all time low.
+
+This is why anti-trust laws exist. No single company should hold this much power.",,comment
+"Obviously Nvidia wants to make money, but they didn’t create this shortage, it’s more like TSMC can’t keep up with the demand. I don’t think antitrust can do anything in this case.",,comment
+"Yes, TSMC as a monopoly or near-monopoly is also a very bad thing for obvious reasons.",,comment
+"I don’t think it’s their fault that Intel/Samsung (or even Global Foundry) are not as competitive.
+
+If we are talking about memory manufacturers doing price fixing, sure they should be punished. But intel doing 14nm+++ is their own fault imo",,comment
+"If you think it's bad now, just wait till China invades Taiwan.",,comment
+They are doing more than “making money”. They are utterly raping the market and can charge whatever they want.,,comment
+Nvidia got to where they are by providing a superior product. They never engaged in price wars or anything. Cuda was something they built to supply a demand. They made their own luck. They're right to maximize profits during this boom because it won't last forever.,,comment
+"Naw. CUDA was a nVidia only closed API that nVidia pushed hard into every sphere they could to vendor lock in compute on GPUs. They did similar with openGL by adding a ton of extensions that only benefitted their own hardware; AMD created Mantle that then turned into Vulkan because openGL had been captured to a decent degree by nVidia. CUDA should have been openCL but nvidia did their own thing to vendor lock people.
+
+Creating a ""superior"" product is easy when you're a monopoly or you have absolute total control of standards that benefit you and harm your competition.",,comment
+"I honestly hate AMD more than Nvidia for continuously fucking up their open source efforts.. they have handled it so bad it has to be some kind of inside sabotage job, all they had to do was provide even a half decent alternative and we got the ROCm abomination",,comment
+"32gb is the minimum needed to run a decent AI model locally today. They can't have people doing that when openAI are paying them billions, on the assured assumption nobody will run their own models. 24GB limit puts local ai out of reach for newcomers who have cottoned on to the fact that we don't need openai or anthropic at all.",,comment
+"2x R9700 here, running qwen 3.8 27b fp8 at 140 t/s and 3500 t/s prefill. Enough for me",,comment
+"They're not discontinuing the 5090, they're just renaming it PRO and charging what the AI market was already paying for it.",,comment
+"As someone who vibecodes locally on gpu, buy your gpus now folks.
+
+The recent huge wave of mods, games, decomp/recomp etc. is just small shit compared to actual companies using local hardware to run their operations.
+
+The reason why two month ago prices of consumer gpus again rose a lot was Qwen 3.8 27b which you can run at home easily on gpu that gives you Opus 4.6-4.7 quality. That caused wave of companies buying up gpus by carts.
+
+Qwen4 which is estmiated to reach Opus 5 should be released in less than 1-2 months and with its weird architectuer even 12gb cars will be able to run it with some ram fast.
+
+Also people hoping on some kind of ai bubble to pop. That's no longer the case. I think we will see at least 3-4 years non stop suckction of new hardware.
+
+Ai is just like computers in 80/90s. IT's not a bubble, just industry will have to grow to meet the demand.
+
+Also if you work in SAAS business i would advice looking to change job now to something that requires certificates. SAAS is pretty much dead in a year.",,comment
+"No needs to be that desperate, there's always used parts to grab like V100.
+
+Just don't fall for big corps' trap, Cloud AI is definitely a bubble, and they're trying to prolong it.
+
+They want you to be desperate and sub to their services, then they can profit, but currently all of them are losing money.",,comment
+"AMD and Intel GPUs with high VRAM are sufficient for that. No need for overpriced NVIDIA cards at the moment, prices are way too high.",,comment
+Remember a couple weeks ago when all the 5090s disappeared overnight? My microcenter went from 25 cards to 0. I guess now we know why...,,comment
+"These 5090 went to China most likely. Might go via Malaysia, Indonesia or Mongolia, but they will end in China almost all the time.
+
+If you sell a used 5090 or 4090 online in Germany, it will be bought at any price and the names always look Chinese and that is going on for two years now.",,comment
+Meanwhile my local microcenter went from 2 pro 6000s to 25+ overnight.,,comment
+"Sucks in the short term. However, when the bubble pops, that means we have more PROs to fill up our machines.
+
+If I can get x4 PROs into my tower, projects using Flash+ models will take hours, not days, to complete.",,comment
+"Don't count on any bubble popping. Even with the questionable business model from open AI and anthropic in terms of capex, there is still a shortage of datacenters and soon we will see massive silicon demand for all purpose robots",,comment
+"I think if you can get your hands on some gpu's, now is the time to get it. If they stop the 5090 then the 4090 and 3090 are going to dry up",,comment
+Have you shopped for a 3090 lately? Those are pretty dried up too.,,comment
+"For a small data point I bought 2x 3090 last year for about 800 ea and bought 2x 3090 in the last month for 1100 each, now whatever is left in my local market is 1300+ or too far for me to drive.
+
+Meanwhile ebay is around 1400+ BIN it seems like for a 3090",,comment
+"Yup. 3090 jumped up recently.
+
+5090 is a gaming card, but the main chip is far more valuable in enterprise products. Meanwhile, in gaming 5090 is more like a luxury item. 5080 with 24 GB will be the new peak there.
+
+The DGX/RTX Spark and AMD 395 like systems, and similar, are the future of AI at home.
+
+Memory is the biggest limiting factor for inference, not compute. Put a 5070 like chip in a Spark, give it a lot of memory, and now you can run 100B-200B models on your desk.
+
+5090 has a lot of compute, but it was always memory starved for AI.",,comment
+"They were sold for the price of PRO GPUs anyway. At least normal GPUs were more affordable in the past. If they're not, there's no point in buying them vs pro gpus.",,comment
+"give it a year and the chinese will flood the market with cheaper gpus, no worries.
+they already increased their market share 5 times from 2% to 10% in a year.",,comment
+"The problem is that the Chinese GpUs either have no CUDA support or need a translation layer in order to support it which reduces the performance.
+
+NVIDIA has a dominance not only in HW but SW also unfortunately.",,comment
+"eh Cuda can fuck itself. Other GPUs are already good enough for gaming, and for machine learning, TileLang is being developed https://github.com/tile-ai/tilelang
+
+The next GPU I get is not going to be an nvidia one.
+
+Will probably get downvoted to hell here, but nvidia isn't going to have a monopoly on the tech stack forever",,comment
+I assume they are all going to rtx pro 5500 if the rumor is true,,comment
+I need to go check how much can I sell my 4090 for,,comment

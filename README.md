@@ -283,11 +283,7 @@ of next unit's variance. -->
 
 ## Agreement Report
 
-<!-- Your rate against the staff set, and every disagreement adjudicated.
-
-     Remember you labelled these 30 under the STAFF taxonomy in
-     data/staff_taxonomy.md, not your own — so every argument below is made
-     from those definitions and those decision rules. -->
+The 30 staff-set labels in my_staff_labels.csv were assigned by an AI coding assistant under the staff taxonomy, with my TA's confirmation that this was allowed. The assistant's labels came out in three blocks of ten in file order, which suggests staff_posts.csv is sorted by label, so the agreement rate may be inflated. The adjudications below are mine.
 
 **Agreement rate:** ___ / 30 = ___%
 
