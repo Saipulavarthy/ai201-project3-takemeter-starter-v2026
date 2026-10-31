@@ -1,0 +1,74 @@
+text,label,note
+"If you are talking about sketchy online listings from alibaba, I never saw anyone confirm this. If anything, it sounded like a classic scam.",hot_take,comment; ai-prelabel
+"I also should mentioned, GSQ RCO when it comes to webdev stuff is pretty much identical to its full expert brethren. So if you are mainly building ThreeJs, API, Web, React, etc then it is a good model. And ofc my personal use cases is kinda ""out of distribution""
+
+
+That animated video is are created by GSQ-RCO Coder using GSAP. and it is quite good",hot_take,comment; ai-prelabel
+"Running PR reviews on a local model: what i learned building an open-source code reviewer
+
+i built lgtmaybe, an open-source code reviewer, and a lot of the work went into making it usable on a local model. Big files get reviewed a hunk at a time, and big diffs get split to fit the context window, so a 27B model copes fine. The default is five model calls per review, which is fine on one GPU. Which local models have you found actually good at code review? Keen to pick better defaults. https://github.com/MattJColes/lgtmaybe",analysis,ai-prelabel
+"Ngl OpenChamber is the only thing keeping me on OpenCode. It’s so damn good, I use it as a general chat and coding harness. Vs code extension is super good too.
+
+I wish I could move to Pi, but last time I checked nothing comes close to OpenChamber in its polish and feature set",hot_take,comment; ai-prelabel
+"Idk why you think 9060-16 is low end. Thats a solid inference card. New architecture, 16GB memory. I bet it works wonders",analysis,comment; ai-prelabel
+Remember a couple weeks ago when all the 5090s disappeared overnight? My microcenter went from 25 cards to 0. I guess now we know why...,reaction,comment; ai-prelabel
+"Yeah, it's a no-brainer, it basically gives you a free quant level at no vram cost. I was surprised that unsloth and other quant providers doesn't already publish it this way, at least optionally.",hot_take,comment; ai-prelabel
+"FOMO mostly. I keep hearing how good Pi is, and there's (limited) benchmarks showing the same model in Pi getting higher task completion while spending way less tokens than Opencode.
+
+One thing I haven't seen is if Opencode with a similarly-minimal system prompt and pared down tools would achieve the same thing... Theoretically yes, but no data and I'm too lazy to test it mysself. One day",hot_take,comment; ai-prelabel
+"For a small data point I bought 2x 3090 last year for about 800 ea and bought 2x 3090 in the last month for 1100 each, now whatever is left in my local market is 1300+ or too far for me to drive.
+
+Meanwhile ebay is around 1400+ BIN it seems like for a 3090",analysis,comment; ai-prelabel
+"haha, amd lol. i swaer amd doesn't even try to compete with nvidia anymore and just follows their leads",hot_take,comment; ai-prelabel
+"If you think it's bad now, just wait till China invades Taiwan.",hot_take,comment; ai-prelabel
+I'm a Go user and mid session an error preventing prompting and that I should change my API key and that log out and log in wouldn't work. Spent 5 minute trying to locate what API key they were talking about. Then logged out and in and that worked... Thanks for the heads up. Didn't have and provider key and didn't receive any email so I'm safe.,reaction,comment; ai-prelabel
+"These 5090 went to China most likely. Might go via Malaysia, Indonesia or Mongolia, but they will end in China almost all the time.
+
+If you sell a used 5090 or 4090 online in Germany, it will be bought at any price and the names always look Chinese and that is going on for two years now.",hot_take,comment; ai-prelabel
+I don't think Chinese companies have any less interest in price gouging than American ones do.,hot_take,comment; ai-prelabel
+"Codex is the best open source harness by a mile.
+
+Specifically for its auto safety classifier that works like Claude Code's. So you can  let something run autonomously without a high chance of nuking your machine.
+
+Use local models or whatever for agent and Luna or Haiku 5.5 for the safety classifier. Cost should be minimal because those models are so cheap on input tokens.",analysis,comment; ai-prelabel
+"it's almost like this ai rush hasn't attracted exactly the engineer types
+
+evergreen advice: ignore hype machine, don't trust clankers, always verify, test and benchmark on your own use cases",hot_take,comment; ai-prelabel
+“Distillation attack” may be the most obnoxious Anthropic doublespeak I have ever seen,hot_take,comment; ai-prelabel
+"Yeah, but you can be a local user and cloud user at the same time.",hot_take,comment; ai-prelabel
+"the performance did not really change much based on which PLE Table is loaded, also for RAM/VRAM usage nothing changed really between shipped PLE/FP8/BF16 as the PLE Table sits on SSD.",analysis,comment; ai-prelabel
+"eh Cuda can fuck itself. Other GPUs are already good enough for gaming, and for machine learning, TileLang is being developed https://github.com/tile-ai/tilelang
+
+The next GPU I get is not going to be an nvidia one.
+
+Will probably get downvoted to hell here, but nvidia isn't going to have a monopoly on the tech stack forever",hot_take,comment; ai-prelabel
+"This is the LocalLLaMA sub, king.
+
+Post your setup, poor, jank, or expensive overkill. I saw a guy the other day have 4 clustered mini PCs that were running Qwen 35b at 4 tok/s and he was super stoked about it.",reaction,comment; ai-prelabel
+"This is why monopolies are bad. Too few companies doing things like designing GPUs, manufacturing GPUs, manufacturing RAM, etc. it's also why closed APIs like CUDA have screwed the consumer. I refused to buy nVidia for their anti-consumer proprietary behavior for a decade and a half because of it. I refuse to buy Apple for similar. AMD is significantly more consumer friendly but that doesn't matter when their market share for GPUs has kept descending to an all time low.
+
+This is why anti-trust laws exist. No single company should hold this much power.",hot_take,comment; ai-prelabel
+"I have bought modded VRAM cards from Alibaba. In private, the ""biggest"" card my trusted supplier offered me to buy was 4090 48GB. It was like half a year after the first ""5090 96gb"" listings appeared there. I prefer to think that extra-vram 5090 isn't available yet, otherwise they would've offered me to buy it.",analysis,comment; ai-prelabel
+"Wait what? There is plenty of demand for the 5090. Just look at the MSRP vs what it actually costs to get one.
+
+There's a clear indicator that demand is ~2x the MSRP.
+
+The same for the RTX Pro series.
+
+The core difference is the markup. The Pro series is manufactured end to end BY NVIDIA.
+
+You don't buy an Asus RTX Pro.
+
+All of that margin, dealing with 3rd parties, etc is pushed back to Nvidia profits and marked up.",analysis,comment; ai-prelabel
+"oops, that's what Grok told me or rather I didn't check, sorry!
+
+In llama.cpp / mixed-quant repos, BF16 PLE sidecars (~95 GiB, mmap from SSD) are real and people measure a clear quality win. In Strata, the supported “don’t quantize the table hard” upgrade is --ple-gguf → FP8 (or Q8_0), not a documented BF16 95 GB GGUF loader. So: take the comment seriously (don’t run with IQ4_NL PLE if you care about quality), but on Strata implement it as FP8 or Q8_0 via --ple-gguf, not by hunting for a BF16 file unless you confirm your exact Strata version accepts BF16 PLE rows.
+
+My bad!",analysis,comment; ai-prelabel
+"Ha, finally some engineering talk. The original design was for en-grams to be fully stored in RAM, in practice it turns out as you say the call distribution is wildly lopsided unlike with experts in MoE models, so storing a fraction in RAM is more practical for scaled down use. In my own testing for example I found you can trivially store the image encoder in RAM, for the occasional image in a prompt you lose barely a few ms in encode, in return you free up VRAM without turning your model blind.
+
+The fruit is quite low hanging for optimisations here.",analysis,comment; ai-prelabel
+Rumor is the 5090 can be modded to 64GB so I assume this also had an impact.,hot_take,comment; ai-prelabel
+"comfyui requires you to have knowledge on how diffusion models work. like if you literally take a course or do some self study, it becomes much clearer. otherwise it's a jumble of variables and spaghetti lines that nobody explains anywhere. i was its worst hater several years ago, now i think it's pretty okay. at the very least, you might wanna ask an llm about how to use it and what some of the variables mean. Unlike llm serving which has been nicely simplified for the end user now, comfyui is designed to allow the user to define what the inputs and outputs are with much more flexibility. it's closer to n8n if you know what that is.
+
+i also agree with the other commenter that you're probably looking at the slop workflows in the first place. the default templates with 5 boxes and lines work out of the box. whatever huge workflow you're looking at, you can treat it like a badly vibecoded pr to llama.cpp. might do something neat, no guarantee to work at all on your hardware.",hot_take,comment; ai-prelabel

@@ -4,10 +4,10 @@ text,label,note
 Saw the hundreds of tweets where people just keep asking Opus 5.5 for motion graphic videos. Decided to ask qwen to look at them and make its own. Quite amazing what local can achieve. **EDIT** It looks laggy because of reddits .gif limit btw the full high res version (with sound) is here: https://x.com/mkultraware/status/2104192428664127555 Promted and built in: https://github.com/mkultraware/accuretta",analysis,ai-prelabel
 "48Gb VRAM speed AND quality ! (Qwen 3.8 27B Swift 1.5 W8A16)
 
-Hi, Because sometimes you need both speed AND quality, I made my own Qwen 3.8 27B Swift 1.5 quant. It's an 8 bits AWQ + GPTQ quant. Made with love and precision (read the model card) on my 4 RTX 3090, I believe it's the best compromise you can actually get on 48Gb of VRAM. Running it with vLLM and MTP on 2 RTX 3090 in my workflows and it's working flawlessly at almost 100 tok/s decode (with MTP=5), while being less an overthinker than the OG 3.8 27B :) Around 21.6Gb used per card (vLLM launched with 128k context and FP16 KV cache). https://huggingface.co/TacGibs/Swift-1.5-Qwen3.8-27B-W8A16 Hope it'll be usefull to someone else !",,
+Hi, Because sometimes you need both speed AND quality, I made my own Qwen 3.8 27B Swift 1.5 quant. It's an 8 bits AWQ + GPTQ quant. Made with love and precision (read the model card) on my 4 RTX 3090, I believe it's the best compromise you can actually get on 48Gb of VRAM. Running it with vLLM and MTP on 2 RTX 3090 in my workflows and it's working flawlessly at almost 100 tok/s decode (with MTP=5), while being less an overthinker than the OG 3.8 27B :) Around 21.6Gb used per card (vLLM launched with 128k context and FP16 KV cache). https://huggingface.co/TacGibs/Swift-1.5-Qwen3.8-27B-W8A16 Hope it'll be usefull to someone else !",analysis,ai-prelabel
 "Make no mistake, selling 64 GB DGX Spark variants at the same cost as the original 128 GB is straight drug dealer behavior.
 
-It's something straight out of the season one of 'The Wire': you take the product, dilute it, and sell it at practically the same cost. It's some ""Stringer"" Bell shit. We should call the 64gbs ""Stepped-ons"" from now on.",,
+It's something straight out of the season one of 'The Wire': you take the product, dilute it, and sell it at practically the same cost. It's some ""Stringer"" Bell shit. We should call the 64gbs ""Stepped-ons"" from now on.",hot_take,ai-prelabel
 "SLM community telenovela: what do you guys think about this arguement?
 
 If there is something I like about the indie SLM community is there is always some drama every week about something. I mean, look, I don't like to disrespect others or their work, but this is some crazy statements made by banaxi-tech. here is the link to the HF discussion: https://huggingface.co/posts/AtAndDev/171445229116783",reaction,ai-prelabel
@@ -57,48 +57,36 @@ This quant is 100% alive and well and there are strong signals that it's indeed 
 On many tests (math, science, medicine, etc.), they score about 10% higher, use half the tokens, run twice as fast, and cost much less than regular models. mod here, paper link: [2610.18861] Hybrid Reasoning Agents original post on tech_x. EDIT: This method is an adaptation for current word-space reasoning llm. You can use if you trust the model, and avoid on a new model.",analysis,ai-prelabel
 "Running PR reviews on a local model: what i learned building an open-source code reviewer
 
-i built lgtmaybe, an open-source code reviewer, and a lot of the work went into making it usable on a local model. Big files get reviewed a hunk at a time, and big diffs get split to fit the context window, so a 27B model copes fine. The default is five model calls per review, which is fine on one GPU. Which local models have you found actually good at code review? Keen to pick better defaults. https://github.com/MattJColes/lgtmaybe",,
+i built lgtmaybe, an open-source code reviewer, and a lot of the work went into making it usable on a local model. Big files get reviewed a hunk at a time, and big diffs get split to fit the context window, so a 27B model copes fine. The default is five model calls per review, which is fine on one GPU. Which local models have you found actually good at code review? Keen to pick better defaults. https://github.com/MattJColes/lgtmaybe",analysis,ai-prelabel
 "If you are not struggling for space, you might as well keep the full bf16 PLE, no? That's what I did. Had MiMo make a script like the ple_pf8-pack, but for bf16, downloaded the shards from Qwen's repo, ran the script, and I'm good to go.
 
-Can't speak on quality yet, since it's now working through the area it didn't struggle with before either, but the speed is the same. The only difference is that instead of ~0.3MB/s reads on the SSD, I see more like 1-2MB/s.",,comment
+Can't speak on quality yet, since it's now working through the area it didn't struggle with before either, but the speed is the same. The only difference is that instead of ~0.3MB/s reads on the SSD, I see more like 1-2MB/s.",analysis,comment; ai-prelabel
 "Yeah, it's a no-brainer, it basically gives you a free quant level at no vram cost. I was surprised that unsloth and other quant providers doesn't already publish it this way, at least optionally.",hot_take,comment; ai-prelabel
 "I personally swapped the 3rd shard in the Q5_XL (and up) quant with the 3rd shard from the BF16 release, and have been using it like that for awhile. Seems to work fine.",analysis,comment; ai-prelabel
 "Yeah, I think for q5 and upwards it works that way if I'm not mistaken. The other quants are more complicated because the table isn't in its own separate shard.",analysis,comment; ai-prelabel
-"And I used your script to move the PLE shard to last and then swap the files. You also have to change files index and file count when get the shard from another quant. llama.cpp does not check file count, but file index is needed.",,comment
+"And I used your script to move the PLE shard to last and then swap the files. You also have to change files index and file count when get the shard from another quant. llama.cpp does not check file count, but file index is needed.",analysis,comment; ai-prelabel
 When Unsloth released the <=Q4 quants the code for instance in llama.cpp was still evolving. The PLE wasn't loaded from disk yet. Since >=Q5 the PLE was Q8 as put last in files.,analysis,comment; ai-prelabel
-I was confused reading the unsloth quant page when the model dropped as to why they weren't distinguishing them. Maybe they think lower filesize looks better and didn't want to break from the page template of their previous releases? Worse user outcome though.,,comment
+I was confused reading the unsloth quant page when the model dropped as to why they weren't distinguishing them. Maybe they think lower filesize looks better and didn't want to break from the page template of their previous releases? Worse user outcome though.,hot_take,comment; ai-prelabel
 "it's almost like this ai rush hasn't attracted exactly the engineer types
 
-evergreen advice: ignore hype machine, don't trust clankers, always verify, test and benchmark on your own use cases",,comment
+evergreen advice: ignore hype machine, don't trust clankers, always verify, test and benchmark on your own use cases",hot_take,comment; ai-prelabel
 "I keep running into the most basic problems with so many projects in this space. The en-gram thing is just the tip of the iceberg, a basic back-of-the-envelope estimate proves that SSD offload is trivially possible and loading them into RAM is pointless. My personal recurring gripe is the whole ComfyUI space where I am unable to use it or import a „ready to use“ workflow without LLM assistance.",hot_take,comment; ai-prelabel
 "RAM is not totally pointless for serving massively parallel requests while keeping the energy bill low
 
 IIRC PLE traffic is something like a few hundred kb per second per request, but the issue is that you want to keep the GPU fed quickly to maximise energy usage as idling takes energy too, so that's why all the big inference providers put PLE into RAM or at least keep a hot cache of engrams in RAM. Something like 1% of engram table is responsible for 80-90% of the traffic IIRC so the cache can be surprisingly small (but bigger than you'd expect because the 1% depends on the domain and you can be getting very varied requests if you're a generic inference provider)
 
-SO that's why all the RAM offload code exists. But it's true that SSD offload is good enough for a lot of the use cases here (which is like, mostly agentic coding...)",,comment
+SO that's why all the RAM offload code exists. But it's true that SSD offload is good enough for a lot of the use cases here (which is like, mostly agentic coding...)",analysis,comment; ai-prelabel
 "Ha, finally some engineering talk. The original design was for en-grams to be fully stored in RAM, in practice it turns out as you say the call distribution is wildly lopsided unlike with experts in MoE models, so storing a fraction in RAM is more practical for scaled down use. In my own testing for example I found you can trivially store the image encoder in RAM, for the occasional image in a prompt you lose barely a few ms in encode, in return you free up VRAM without turning your model blind.
 
 The fruit is quite low hanging for optimisations here.",analysis,comment; ai-prelabel
 "comfyui requires you to have knowledge on how diffusion models work. like if you literally take a course or do some self study, it becomes much clearer. otherwise it's a jumble of variables and spaghetti lines that nobody explains anywhere. i was its worst hater several years ago, now i think it's pretty okay. at the very least, you might wanna ask an llm about how to use it and what some of the variables mean. Unlike llm serving which has been nicely simplified for the end user now, comfyui is designed to allow the user to define what the inputs and outputs are with much more flexibility. it's closer to n8n if you know what that is.
 
-i also agree with the other commenter that you're probably looking at the slop workflows in the first place. the default templates with 5 boxes and lines work out of the box. whatever huge workflow you're looking at, you can treat it like a badly vibecoded pr to llama.cpp. might do something neat, no guarantee to work at all on your hardware.",,comment
-"Even though I mostly agree, unsloth brothers are real engineers. I suspect they haven't had time to think much about Qwen 3.8-Flash-Next yet",,comment
-Unsloth have lied before. Remember when they released a quant and claimed it was 2x faster when it was... like 7% faster because it was a higher quantisation?,,comment
+i also agree with the other commenter that you're probably looking at the slop workflows in the first place. the default templates with 5 boxes and lines work out of the box. whatever huge workflow you're looking at, you can treat it like a badly vibecoded pr to llama.cpp. might do something neat, no guarantee to work at all on your hardware.",hot_take,comment; ai-prelabel
+"Even though I mostly agree, unsloth brothers are real engineers. I suspect they haven't had time to think much about Qwen 3.8-Flash-Next yet",hot_take,comment; ai-prelabel
+Unsloth have lied before. Remember when they released a quant and claimed it was 2x faster when it was... like 7% faster because it was a higher quantisation?,analysis,comment; ai-prelabel
 "I tested also that and no difference. The extra bits just vanish. 16 bits going to 4 bits. Puf! Gone!
-I even tried changing the 1 layer after n-gram to Q8 but no difference.",,comment
-"Interesting that this seems to be common knowledge among those who could run the model before Strata was released, lol.",,comment
-"well, i didn't know it either, but your question made me wonder :)
-
-i found ds4 with their qwen38-q4k model variant a already a pleasure to use (on medium effort level), so i had to know, if it's possible to further improve it.
-
-i just asked gemini:
-
-What quantization does antirez/ds4 uses for the n-gram table of Qwen 3.8 flash next q4?
-
-Why is it not using some 8 or 16 bit precision for the n-grams?
-maybe check the git history too, for the answer
-
-I wasn't asking in general. i'm talking about ds4 inference engine qwen3.8 flash next q4 n-gram table quantization specifically, which is streamed from ssd, so don't bullshit me with ""doesn't fit into the unified memory""! of course it doesn't; that's why it's streamed. duh.",,comment
+I even tried changing the 1 layer after n-gram to Q8 but no difference.",analysis,comment; ai-prelabel
+"Interesting that this seems to be common knowledge among those who could run the model before Strata was released, lol.",reaction,comment; ai-prelabel
 "I was personally horrified that the PLE table was quantized when I setup Strata, so I quickly swapped it out with Q8 version.",reaction,comment; ai-prelabel
 "thanks for the suggestion, i tested the ISTA-DASLAB IQ3_S with the shipped ple table, then the official FP8 and also with the BF16 table.
 
@@ -108,7 +96,7 @@ the results were interesting: with FP8, the challenges did complete at uncapped 
 
 that shifted when i introduced reasoning caps at 32K and 16K, then the model became unreliable in the answer (in one run on the same question the model answered correct, in another with same sampling configs wrong), but inconclusive which PLE Table gives the best quality under a reasoning cap of 32K and 16K. the only correlated finding is, the lesser reasoning tokens you allow, the more unrealiable the model becomes regardless of the PLE Table quant, at least from the benchmark questions i gave the model.
 
-all i can say is that i will be using the FP8 PLE Table from now on with ISTA IQ3_S.",,comment
+all i can say is that i will be using the FP8 PLE Table from now on with ISTA IQ3_S.",analysis,comment; ai-prelabel
 "the performance did not really change much based on which PLE Table is loaded, also for RAM/VRAM usage nothing changed really between shipped PLE/FP8/BF16 as the PLE Table sits on SSD.",analysis,comment; ai-prelabel
 "Unfortunately only 2 tests, so take that what you will, with opencode, xhigh.
 
@@ -136,8 +124,8 @@ That animated video is are created by GSQ-RCO Coder using GSAP. and it is quite 
 
 In llama.cpp / mixed-quant repos, BF16 PLE sidecars (~95 GiB, mmap from SSD) are real and people measure a clear quality win. In Strata, the supported “don’t quantize the table hard” upgrade is --ple-gguf → FP8 (or Q8_0), not a documented BF16 95 GB GGUF loader. So: take the comment seriously (don’t run with IQ4_NL PLE if you care about quality), but on Strata implement it as FP8 or Q8_0 via --ple-gguf, not by hunting for a BF16 file unless you confirm your exact Strata version accepts BF16 PLE rows.
 
-My bad!",,comment
-"I'm running the model at q6 with q6 ngram, and it's working very well, it's noticeably better than the q4 with q4 ngram I was running before. I doubt there's much more to squeeze out of it though.",,comment
+My bad!",analysis,comment; ai-prelabel
+"I'm running the model at q6 with q6 ngram, and it's working very well, it's noticeably better than the q4 with q4 ngram I was running before. I doubt there's much more to squeeze out of it though.",hot_take,comment; ai-prelabel
 "I tested it yesterday actually (but Q8 instead of FP8, from this repo https://huggingface.co/sleepyeldrazi/Qwen3.8-Flash-Next-GSQ-RCO-Q8_0-PLE-GGUF and GSO-RSQ IQ3_S quant )
 
 There was no difference in code (JavaScript, bash, powershell), there was a very small difference in English prose and small difference in Polish prose. The issue is that I'm not fully confident with these KLD/topK results as I tested against Alibaba Cloud Qwen 3.8 Flash and they say its ""production ready with native 1M context"" version, idk if that ""production ready"" is different weights or its the same shit.
@@ -146,52 +134,48 @@ Benchmarks I tested (HMMT, DeepSWE-mini) didnt change at all.
 
 I also heard from friend that with Q8 PLE Finnish is a little bit better.
 
-Anyways, IMO it's barely noticeable overall, feel free to test on your own tasks/language. I will test bf16 PLE soon, now I'm testing different flags in Strata",,comment
+Anyways, IMO it's barely noticeable overall, feel free to test on your own tasks/language. I will test bf16 PLE soon, now I'm testing different flags in Strata",analysis,comment; ai-prelabel
 "This is the LocalLLaMA sub, king.
 
-Post your setup, poor, jank, or expensive overkill. I saw a guy the other day have 4 clustered mini PCs that were running Qwen 35b at 4 tok/s and he was super stoked about it.",,comment
+Post your setup, poor, jank, or expensive overkill. I saw a guy the other day have 4 clustered mini PCs that were running Qwen 35b at 4 tok/s and he was super stoked about it.",reaction,comment; ai-prelabel
 I managed to get a PS5 for 250. The trickiest part is finding one that hasn't been online in awhile and is still using the older firmware. Their dirt cheap right now.,analysis,comment; ai-prelabel
 Bc-250 is also used in a ps5 + its a single board computer so you can run linux without any issue,analysis,comment; ai-prelabel
 "Anthropic ran a 26B on 15 $55 smart TVs. The intent of the article was to raise more fud around local models, but my takeaway was I need to start buying TVs
 
-https://www.anthropic.com/research/self-replicating-ai",,comment
+https://www.anthropic.com/research/self-replicating-ai",analysis,comment; ai-prelabel
 "Thats performance is normal, these GPUs are 11 year old. They just look beefy, but your phone has better compute.",analysis,comment; ai-prelabel
 Lol. I love seeing people hack together things. The ingenuity is amazing. Results are unusable but i do enjoy reading it :) i started reading here and then got and rtx pro 6k and 5090 but the engineering here with crazy ideas sometimes makes it into my runtime.,reaction,comment; ai-prelabel
-"Dual tesla P100s, purchased when they were ~$80 a piece. Qwen3.6 35b A3B Q4 at 170-200 t/s generation. Heavily optimized build of llama.cpp to make that happen. Cheap builds are doable.",,comment
-"Check my post history. Have a repo; point your agent at it. Outputs from the model aren't exact to stock llama.cpp, but the actual quality of the outputs don't seem altered.",,comment
+"Dual tesla P100s, purchased when they were ~$80 a piece. Qwen3.6 35b A3B Q4 at 170-200 t/s generation. Heavily optimized build of llama.cpp to make that happen. Cheap builds are doable.",analysis,comment; ai-prelabel
+"Check my post history. Have a repo; point your agent at it. Outputs from the model aren't exact to stock llama.cpp, but the actual quality of the outputs don't seem altered.",hot_take,comment; ai-prelabel
 "I can attest to that. Just after the price of memory started to climb I was able to buy a used ""computer"" (minus gpu, keyboard, case, psu) with Ryzen 5950x and 128 GB DDR4-3600 c16 memory and x570 motherboard for what now is about US$ 530. I can buy similar memory (but c18) new for about US$ 3,460 locally. Imagine what a AI cluster of 6 such machines could do. OK, I would need GPUs but they can be PCIe 4...",analysis,comment; ai-prelabel
-Similar here. I grabbed a threadripper system with 64gb ddr4 and another system with 128gb and a titan rtx just before prices on all that went crazy. I just priced out another one with all used gear a few days ago and holy shit.,,comment
-"I had an almost identical motherboard already and are in the market for another 5950x... a cluster with two 64 GB machines that can work standalone or in tandem can be interesting. Now, GPUs are a different ballgame...",,comment
-"Ha, I've been looking for another one as well. I got ""stuck"" on AM4 but it played out pretty well when ddr5 started going crazy.
-
-And yes, gpus are a whole other thing :) good luck",,comment
+Similar here. I grabbed a threadripper system with 64gb ddr4 and another system with 128gb and a titan rtx just before prices on all that went crazy. I just priced out another one with all used gear a few days ago and holy shit.,reaction,comment; ai-prelabel
 "oh thank you! i’m happy here tho. i have nothing against insane builds, just wanted to point it out for the lurkers to not get discouraged. i think you can see from my top 1 percent commenter badge im pretty happy lol",reaction,comment; ai-prelabel
 "Idk why you think 9060-16 is low end. Thats a solid inference card. New architecture, 16GB memory. I bet it works wonders",analysis,comment; ai-prelabel
-each to their own but 650t/s prefill is pretty damn slow and 300t/s is basically unusable unless you're getting it to work on something overnight,,comment
-"Yeah, for Hermes or Openclaw 1k prefill is the minimum I can tolerate lol. If what you're doing doesn't regularly send a huge system prompt I guess 300-600 might be ok",,comment
+each to their own but 650t/s prefill is pretty damn slow and 300t/s is basically unusable unless you're getting it to work on something overnight,hot_take,comment; ai-prelabel
+"Yeah, for Hermes or Openclaw 1k prefill is the minimum I can tolerate lol. If what you're doing doesn't regularly send a huge system prompt I guess 300-600 might be ok",hot_take,comment; ai-prelabel
 "Ah, I reread it. I 300tps prefill is pretty rough but not totally useable. If you know you’re getting ready to cold start a 200k session, go make a cup of coffee for ~5 min.",analysis,comment; ai-prelabel
 "Wait... you didn't even consider that the 24gb of ddr5 system properly cost more!
 
-So, yes there full setup bought at today prices is likely $2000 min.",,comment
-mmm not quite. more like 1100. easily can get away with 32gb quad channel ram on an old xeon and get the same performance,,comment
+So, yes there full setup bought at today prices is likely $2000 min.",hot_take,comment; ai-prelabel
+mmm not quite. more like 1100. easily can get away with 32gb quad channel ram on an old xeon and get the same performance,hot_take,comment; ai-prelabel
 "Yeah, it is sort of clickbait ig. definitely not the cheapest way to run 3.8 27b, but compared to even 1 3090 it’s much cheaper. i got mine for 350 before gpu shortage as well for gaming",analysis,comment; ai-prelabel
 "You can buy 4x P100 16GB, total 64GB vram, for 400 bucks and run qwen flash Q4 with engram on disk. Ram is even more expensive than vram these days. Old datacenter hardware is a true gold mine. Any gaming related gpu, even few years old, is still expensive.",analysis,comment; ai-prelabel
 "48 lane pcie switch for 150-200 bucks. Imho the most underrated component of all for localllama users. You can run almost unlimited amount of gpus from single slot on a normal ryzen motherboard, you don't need crazy overpriced threadrippers. You are limited only by your mmio space really, and power is also not a problem because with single stream pipeline parallel you only use one gpu at a time. So for 4x250W gpus, having like 650-750W psu is fine, since your average power will be like 350-450W.
 
 If you already have Amd hardware then Mi25 or Mi50 16GB are the P100 equivalents.
 
-But of course, if you only want to run stuff on hardware you already own then that's a software question. I was just responding in ""cheapest way you can run big models"" way.",,comment
-"I think it's the tendency of the demographic. If you are tech savvy and interested enough to spin up your own local LLM, it's very likely that you also enjoy maximizing your rig",,comment
+But of course, if you only want to run stuff on hardware you already own then that's a software question. I was just responding in ""cheapest way you can run big models"" way.",analysis,comment; ai-prelabel
+"I think it's the tendency of the demographic. If you are tech savvy and interested enough to spin up your own local LLM, it's very likely that you also enjoy maximizing your rig",hot_take,comment; ai-prelabel
 "Did you rebuild your llama.cpp with the asymmetric KV cache combination you're using?
 
 It's a combination i was interested in (well q8_0 q4_1) but it's apparently not a fa cache quant combination that's built by default nor are symmetric q4_1, q5_1, q5_0, so i tried it out. Speed Seems to not break down so quick as context grows.
 
 I don't have a more modern Radeon so I can't say if it will impact you as much, it's well worth it for me to spend a little extra time compiling for that.
 
-I'd look into it if you keep running asymmetrical K/V pairs.",,comment
+I'd look into it if you keep running asymmetrical K/V pairs.",analysis,comment; ai-prelabel
 "A CPU with 32GB of DDR4+ RAM unlocks some great, relatively fast MoE models like Qwen 3.6 35b.  Add in a modest 8GB+ VRAM GPU and you can run even faster, with only 16GB system RAM.
 
-Even pure CPU inference on an 8GB system can run 4B - 8B models, so the hobby is pretty much open to anyone with a PC.",,comment
+Even pure CPU inference on an 8GB system can run 4B - 8B models, so the hobby is pretty much open to anyone with a PC.",analysis,comment; ai-prelabel
 Just tell alibaba to release 3.8 or 4 35b-a3b. No one wants to run 3.6 when you can get better.,hot_take,comment; ai-prelabel
 "4.0 35B (or 25B!) with a huge on-disk engram table would be awesome.  Just like MoE, I don't think we've reached the limits of in-memory vs engram sparsity yet!",hot_take,comment; ai-prelabel
 "The worse and more jank your setup is, the more creative and impressive what you run and what speed is.",hot_take,comment; ai-prelabel
@@ -215,22 +199,22 @@ But using opencode I found Qwen3.8-Flash-Next is way better than Qwen3.8-27B at 
 Like it's miles away better in opencode. Also way faster.
 
 So yeah test the Qwen3.8-Flash-Next if you can run it you'll ditch Qwen3.8-27B which was a blessing to use. But Qwen3.8-Flash-Next with starta is a life safer.",analysis,comment; ai-prelabel
-"12GB vram. Might be able to get it working with 8, but you would have to directly modify the code and I'm not sure it would run well.",,comment
-5080 would make it not that much slower then something like claude. the sad part is my setup is already faster then chatgpt sol. there’s a shortage of compute for them too,,comment
-any old or newish DDR4 or DDR5 (typically makes little difference for the most part) gaming PC with two x8 slots or one x8 slot and one x4 slot and two 16GB cards and you really have a beast,,comment
+"12GB vram. Might be able to get it working with 8, but you would have to directly modify the code and I'm not sure it would run well.",analysis,comment; ai-prelabel
+5080 would make it not that much slower then something like claude. the sad part is my setup is already faster then chatgpt sol. there’s a shortage of compute for them too,hot_take,comment; ai-prelabel
+any old or newish DDR4 or DDR5 (typically makes little difference for the most part) gaming PC with two x8 slots or one x8 slot and one x4 slot and two 16GB cards and you really have a beast,hot_take,comment; ai-prelabel
 "I run something like that, with 2x RDNA2 GPU, so I have slow prefill hence I've build an extension that caches initial prompt process for both Pi and Opencode.
 
 Oh and for the vRAM poor people I've made a MTP version for QWEN 3.x llama.cpp that uses less vRAM.",hot_take,comment; ai-prelabel
 "Z420 mobo open bench build with 32gb of ddr3, a gtx 1070 and a Nvidia Tesla p100 on llama.ccp gets me running about 12 models, with ornith 1.5 35b a3b running around 45-50 TPS. Build only cost 170.
 
-Learn and get your feet wet for under 200 bucks then keep adding onto it as you learn/need more vram. I can upgrade the gtx 1070 to a second p100 or a p40 for a higher vram configuration",,comment
+Learn and get your feet wet for under 200 bucks then keep adding onto it as you learn/need more vram. I can upgrade the gtx 1070 to a second p100 or a p40 for a higher vram configuration",analysis,comment; ai-prelabel
 "They are trying to create an asset out of it which means artificial scarcity. Look at amazon buying gpus and then renting them back to themselves.
 
-I hope anti compete comes after all these guys once we have some politicians with a spine.",,comment
-"This is not artificial scarcity, overall they are not lowering the production. They will produce more Pro cards where the demand is higher instead of consumer cards.",,comment
-"It’s what people are willing to pay for the same part increasing. The finite resource is the die and the VRAM. Circuit boards and everything else can be produced in the needed volume, however we can’t make enough high end chips for both pro series and 5090’s, so the 5090 is the cheaper option to cut. Plus the pro series cards have a few nicer features enabled in software for corporate use and could be used in place of a 5090",,comment
-…because the RTX Pro line has a higher equilibrium price because demand is higher.,,comment
-the margins are higher because the demand is higher. there are simply more buyers willing to pay a higer price for a comparatively low amount of gpus. price increase and thus higher margins is a natural consequence for a scarce resource that is suddenly under higher demand than before.,,comment
+I hope anti compete comes after all these guys once we have some politicians with a spine.",hot_take,comment; ai-prelabel
+"This is not artificial scarcity, overall they are not lowering the production. They will produce more Pro cards where the demand is higher instead of consumer cards.",hot_take,comment; ai-prelabel
+"It’s what people are willing to pay for the same part increasing. The finite resource is the die and the VRAM. Circuit boards and everything else can be produced in the needed volume, however we can’t make enough high end chips for both pro series and 5090’s, so the 5090 is the cheaper option to cut. Plus the pro series cards have a few nicer features enabled in software for corporate use and could be used in place of a 5090",hot_take,comment; ai-prelabel
+…because the RTX Pro line has a higher equilibrium price because demand is higher.,hot_take,comment; ai-prelabel
+the margins are higher because the demand is higher. there are simply more buyers willing to pay a higer price for a comparatively low amount of gpus. price increase and thus higher margins is a natural consequence for a scarce resource that is suddenly under higher demand than before.,hot_take,comment; ai-prelabel
 "Wait what? There is plenty of demand for the 5090. Just look at the MSRP vs what it actually costs to get one.
 
 There's a clear indicator that demand is ~2x the MSRP.
@@ -241,82 +225,82 @@ The core difference is the markup. The Pro series is manufactured end to end BY 
 
 You don't buy an Asus RTX Pro.
 
-All of that margin, dealing with 3rd parties, etc is pushed back to Nvidia profits and marked up.",,comment
+All of that margin, dealing with 3rd parties, etc is pushed back to Nvidia profits and marked up.",analysis,comment; ai-prelabel
 "There's plenty of demand. More demand than they can fulfill. There's definitely scarcity. But it's not artificial scarcity.
 
-Artificial scarcity would be if they have the ability to make twice as many graphics cards as they currently are, and they choose not to. But that's not what happening. They're making as many as they can and the demand is still outpacing supply.",,comment
-There's no artificial scarsity. The price difference between 6000 Pro and 5090 is multiple times more than the price of VRAM chips; and it has early endless demand. It's just plainly more profitable to make 6000 Pros.,,comment
-Demand in China for those gpus is in the millions and the Chinese government gave their companies approval to buy them.,,comment
-"It’s not artificial scarcity. If Nvidia could make more, they would. TSMC is the bottleneck",,comment
+Artificial scarcity would be if they have the ability to make twice as many graphics cards as they currently are, and they choose not to. But that's not what happening. They're making as many as they can and the demand is still outpacing supply.",hot_take,comment; ai-prelabel
+There's no artificial scarsity. The price difference between 6000 Pro and 5090 is multiple times more than the price of VRAM chips; and it has early endless demand. It's just plainly more profitable to make 6000 Pros.,analysis,comment; ai-prelabel
+Demand in China for those gpus is in the millions and the Chinese government gave their companies approval to buy them.,analysis,comment; ai-prelabel
+"It’s not artificial scarcity. If Nvidia could make more, they would. TSMC is the bottleneck",hot_take,comment; ai-prelabel
 "Until it suddenly isn’t, and then someone somewhere will be left holding the biggest bag of garbage ever assembled.
 
-At some point, the investors who currently value OpenAI and Anthropic at $2 trillion each are going to want to see returns matching that valuation (and a concrete plan for how those companies will ever pay back their debts). That’s going to be a tough day.",,comment
+At some point, the investors who currently value OpenAI and Anthropic at $2 trillion each are going to want to see returns matching that valuation (and a concrete plan for how those companies will ever pay back their debts). That’s going to be a tough day.",hot_take,comment; ai-prelabel
 "That's going to be a tough set of months for a lot of people when you look at who holds the debt and how that translates through the market.
 
 I expect the initial discovery phase will be slow as more and more people who hold the debt are exposed.
 
 Anthropic's debt is extremely opaque. There's a huge chunk that I believe Blackrock owns. It's not clear because of the structure of the debt.
 
-Blackrock wanting them to get listed while having their own fund buy the stock, etc is a definite conflict of interest.",,comment
-"Don't worry, in the end the American taxpayers will pay the bulk of it when we bail out a bunch of these companies/oligarchs when the bubble pops.",,comment
-"Didn't happen to Tesla and they have been worth as much as the next 10 car companies combined for years. There's no reality involved in these valuations. No one gives a shit. Elon Musk was like ""uh yeah we're not making cars anymore, we're doing robots or something"" and Tesla is still worth 14 times as much as Ford. Where are the Tesla robots? No one gives a fuck.",,comment
+Blackrock wanting them to get listed while having their own fund buy the stock, etc is a definite conflict of interest.",hot_take,comment; ai-prelabel
+"Don't worry, in the end the American taxpayers will pay the bulk of it when we bail out a bunch of these companies/oligarchs when the bubble pops.",hot_take,comment; ai-prelabel
+"Didn't happen to Tesla and they have been worth as much as the next 10 car companies combined for years. There's no reality involved in these valuations. No one gives a shit. Elon Musk was like ""uh yeah we're not making cars anymore, we're doing robots or something"" and Tesla is still worth 14 times as much as Ford. Where are the Tesla robots? No one gives a fuck.",analysis,comment; ai-prelabel
 "They aren't even valued particularly aggressively relative to their revenue though? And margins are reportedly very high. I don't think either company has had any notable issue paying the carrying cost for the capital they've spent on models they've already built.
 
-You build a factory and you pay off the debt with the income from the factory - I'm not sure I understand what you think is different about these capital expenditures.",,comment
-I don't understand what you are rambling about. I have a bunch of 32gb radeon AI card and they have massive utility when used with LLMs. It isn't just some fictional thing. The utility of AI and the devices that are required to run AI are an actual thing.,,comment
+You build a factory and you pay off the debt with the income from the factory - I'm not sure I understand what you think is different about these capital expenditures.",hot_take,comment; ai-prelabel
+I don't understand what you are rambling about. I have a bunch of 32gb radeon AI card and they have massive utility when used with LLMs. It isn't just some fictional thing. The utility of AI and the devices that are required to run AI are an actual thing.,hot_take,comment; ai-prelabel
 "I knew the consumer GPU market was completely frozen (the 5090 almost two years old and the new generation will take another 1-2 years to come out), but I wasn't expecting it to go in reverse...
 
 It's honestly not surprising in the current market, 5090 cards were already disappearing (availability) and had some insane prices associated with them... Locally they are now €6500+, but I've seen regions where they are listed at €9k+.
 
-Yeah... Not buying anything remotely new any time soon!",,comment
-Rumor is the 5090 can be modded to 64GB so I assume this also had an impact.,,comment
-"If you are talking about sketchy online listings from alibaba, I never saw anyone confirm this. If anything, it sounded like a classic scam.",,comment
-"I have bought modded VRAM cards from Alibaba. In private, the ""biggest"" card my trusted supplier offered me to buy was 4090 48GB. It was like half a year after the first ""5090 96gb"" listings appeared there. I prefer to think that extra-vram 5090 isn't available yet, otherwise they would've offered me to buy it.",,comment
-"please dont think that just because card A can be doubled in capacity a card B can. Theres a lot that must align for any card to be upgradable, and 5090 is not one of those.",,comment
-"Any high-end Nvidia gaming GPU can be doubled up - either by using custom PCB with 2 chips per memory channels (Nvidia pust only 1 chip per channel on many of the models), or by using the chips that have double the memory capacity. The catch is VBIOS: you need to acquire a bios that has memory config for the mod you've got, and, given that all bioses since Ampere are cryptographically signed, that's the hardest par of the mod.",,comment
-"Only thing that stopped 5090 of being modded is drivers encryption that got stronger in 50xx series. When\IF it will be cracked, expect 96gb variants flood aftermarket.",,comment
+Yeah... Not buying anything remotely new any time soon!",reaction,comment; ai-prelabel
+Rumor is the 5090 can be modded to 64GB so I assume this also had an impact.,hot_take,comment; ai-prelabel
+"If you are talking about sketchy online listings from alibaba, I never saw anyone confirm this. If anything, it sounded like a classic scam.",hot_take,comment; ai-prelabel
+"I have bought modded VRAM cards from Alibaba. In private, the ""biggest"" card my trusted supplier offered me to buy was 4090 48GB. It was like half a year after the first ""5090 96gb"" listings appeared there. I prefer to think that extra-vram 5090 isn't available yet, otherwise they would've offered me to buy it.",analysis,comment; ai-prelabel
+"please dont think that just because card A can be doubled in capacity a card B can. Theres a lot that must align for any card to be upgradable, and 5090 is not one of those.",hot_take,comment; ai-prelabel
+"Any high-end Nvidia gaming GPU can be doubled up - either by using custom PCB with 2 chips per memory channels (Nvidia pust only 1 chip per channel on many of the models), or by using the chips that have double the memory capacity. The catch is VBIOS: you need to acquire a bios that has memory config for the mod you've got, and, given that all bioses since Ampere are cryptographically signed, that's the hardest par of the mod.",analysis,comment; ai-prelabel
+"Only thing that stopped 5090 of being modded is drivers encryption that got stronger in 50xx series. When\IF it will be cracked, expect 96gb variants flood aftermarket.",hot_take,comment; ai-prelabel
 "The 5090's upgrade path isn't the same as many others.
 
-That doesn't mean it's impossible.",,comment
-"I don't know about online listings on Alibaba, but VRAM modding is a real thing. Gamersnexus covered it in his GPU smuggling documentary.",,comment
-"I saw this rumoured months ago, looked into it and learnt that it won't become possible until higher capacity DIMMs become available, something about there are are not additional locations on the board where ""extra"" DIMMs can be attached to lanes (I think this is the right terminology, I mean chips and connectors, anyway), and even once higher capacity (3GB iirc) DIMMs are available, they'll be at the cutting edge and so, it'll be cost prohibitive for some time.",,comment
+That doesn't mean it's impossible.",hot_take,comment; ai-prelabel
+"I don't know about online listings on Alibaba, but VRAM modding is a real thing. Gamersnexus covered it in his GPU smuggling documentary.",analysis,comment; ai-prelabel
+"I saw this rumoured months ago, looked into it and learnt that it won't become possible until higher capacity DIMMs become available, something about there are are not additional locations on the board where ""extra"" DIMMs can be attached to lanes (I think this is the right terminology, I mean chips and connectors, anyway), and even once higher capacity (3GB iirc) DIMMs are available, they'll be at the cutting edge and so, it'll be cost prohibitive for some time.",analysis,comment; ai-prelabel
 "What I've seen from recent modded RTX 4090 48GB cards is that they ditch the entire card except the GPU and the RAM and build it up on an entirely new card. Also the price difference between such a 48GB RTX 4090 was not that far removed from a 96GB RTX 6000 PRO when you look at the price per GB. That's been a few months ago though. I'm currently seeing RTX 6000 PRO 96GB going for €18k, while the RTX 5090 32GB is going for €6.5k. Add to that no warranty, the risks, the compatibility issues, more power required, and the lesser performance. I would not even go for a 5090 at this time (IF you have the money for it), especially not for some shaky mod job...
 
-I've modded hardware in the past (AMD CPUs) and if at all possible I would like to avoid that at all costs!",,comment
-"Taking over the world market, which is ultimately far more valuable than sealing themselves in.",,comment
-Destroying the US economy by causing our insane overvaluation of AI companies to crash is a far greater prize.,,comment
-"The President is doing a fine job of crashing our economy all by himself, there's literally zero need for China to get their hands dirty.",,comment
-"If that were true, then Nvidia wouldn't be doing everything they can to stick it to consumers, and would instead try to satisfy both markets.",,comment
-I don't think Chinese companies have any less interest in price gouging than American ones do.,,comment
-"Yet if they sell for cheaper, they will steal the market from under the Americans.",,comment
-this is china's best chance to take up market share with their huawei gpus at a reasonable price.,,comment
-"haha, amd lol. i swaer amd doesn't even try to compete with nvidia anymore and just follows their leads",,comment
+I've modded hardware in the past (AMD CPUs) and if at all possible I would like to avoid that at all costs!",analysis,comment; ai-prelabel
+"Taking over the world market, which is ultimately far more valuable than sealing themselves in.",hot_take,comment; ai-prelabel
+Destroying the US economy by causing our insane overvaluation of AI companies to crash is a far greater prize.,hot_take,comment; ai-prelabel
+"The President is doing a fine job of crashing our economy all by himself, there's literally zero need for China to get their hands dirty.",hot_take,comment; ai-prelabel
+"If that were true, then Nvidia wouldn't be doing everything they can to stick it to consumers, and would instead try to satisfy both markets.",hot_take,comment; ai-prelabel
+I don't think Chinese companies have any less interest in price gouging than American ones do.,hot_take,comment; ai-prelabel
+"Yet if they sell for cheaper, they will steal the market from under the Americans.",hot_take,comment; ai-prelabel
+this is china's best chance to take up market share with their huawei gpus at a reasonable price.,hot_take,comment; ai-prelabel
+"haha, amd lol. i swaer amd doesn't even try to compete with nvidia anymore and just follows their leads",hot_take,comment; ai-prelabel
 "R9700 is very competitive, and AMD didn't even have to try hard, yet still managed to release something affordable and usable on the consumer market.
 
-I'm saying this as I'm running a swarm of agents using Qwen-3.8-Flash-Next fully locally at 500 tps. This is on par with Opus 4.6 but without the cloud dependency. All for the price less than one RTX 5090.",,comment
+I'm saying this as I'm running a swarm of agents using Qwen-3.8-Flash-Next fully locally at 500 tps. This is on par with Opus 4.6 but without the cloud dependency. All for the price less than one RTX 5090.",analysis,comment; ai-prelabel
 "You're judging a transition phase as a permanent surrender. NVIDIA dominates because CUDA unifies their entire enterprise and consumer ecosystem. AMD is literally resetting their pipeline with UDNA to merge RDNA and CDNA and do the exact same thing.
 
-You never know, I wouldnt claim AMD ""arent trying to compete"" just yet.",,comment
-It'll take a long time before they fulfill demand in their own market with a billion people.,,comment
-Maybe the 5090 SE and 5080 SUPER were real - but only because it'll be a smaller die,,comment
+You never know, I wouldnt claim AMD ""arent trying to compete"" just yet.",analysis,comment; ai-prelabel
+It'll take a long time before they fulfill demand in their own market with a billion people.,hot_take,comment; ai-prelabel
+Maybe the 5090 SE and 5080 SUPER were real - but only because it'll be a smaller die,hot_take,comment; ai-prelabel
 "This is why monopolies are bad. Too few companies doing things like designing GPUs, manufacturing GPUs, manufacturing RAM, etc. it's also why closed APIs like CUDA have screwed the consumer. I refused to buy nVidia for their anti-consumer proprietary behavior for a decade and a half because of it. I refuse to buy Apple for similar. AMD is significantly more consumer friendly but that doesn't matter when their market share for GPUs has kept descending to an all time low.
 
-This is why anti-trust laws exist. No single company should hold this much power.",,comment
-"Obviously Nvidia wants to make money, but they didn’t create this shortage, it’s more like TSMC can’t keep up with the demand. I don’t think antitrust can do anything in this case.",,comment
-"Yes, TSMC as a monopoly or near-monopoly is also a very bad thing for obvious reasons.",,comment
+This is why anti-trust laws exist. No single company should hold this much power.",hot_take,comment; ai-prelabel
+"Obviously Nvidia wants to make money, but they didn’t create this shortage, it’s more like TSMC can’t keep up with the demand. I don’t think antitrust can do anything in this case.",hot_take,comment; ai-prelabel
+"Yes, TSMC as a monopoly or near-monopoly is also a very bad thing for obvious reasons.",hot_take,comment; ai-prelabel
 "I don’t think it’s their fault that Intel/Samsung (or even Global Foundry) are not as competitive.
 
-If we are talking about memory manufacturers doing price fixing, sure they should be punished. But intel doing 14nm+++ is their own fault imo",,comment
-"If you think it's bad now, just wait till China invades Taiwan.",,comment
-They are doing more than “making money”. They are utterly raping the market and can charge whatever they want.,,comment
-Nvidia got to where they are by providing a superior product. They never engaged in price wars or anything. Cuda was something they built to supply a demand. They made their own luck. They're right to maximize profits during this boom because it won't last forever.,,comment
+If we are talking about memory manufacturers doing price fixing, sure they should be punished. But intel doing 14nm+++ is their own fault imo",hot_take,comment; ai-prelabel
+"If you think it's bad now, just wait till China invades Taiwan.",hot_take,comment; ai-prelabel
+They are doing more than “making money”. They are utterly raping the market and can charge whatever they want.,hot_take,comment; ai-prelabel
+Nvidia got to where they are by providing a superior product. They never engaged in price wars or anything. Cuda was something they built to supply a demand. They made their own luck. They're right to maximize profits during this boom because it won't last forever.,hot_take,comment; ai-prelabel
 "Naw. CUDA was a nVidia only closed API that nVidia pushed hard into every sphere they could to vendor lock in compute on GPUs. They did similar with openGL by adding a ton of extensions that only benefitted their own hardware; AMD created Mantle that then turned into Vulkan because openGL had been captured to a decent degree by nVidia. CUDA should have been openCL but nvidia did their own thing to vendor lock people.
 
-Creating a ""superior"" product is easy when you're a monopoly or you have absolute total control of standards that benefit you and harm your competition.",,comment
-"I honestly hate AMD more than Nvidia for continuously fucking up their open source efforts.. they have handled it so bad it has to be some kind of inside sabotage job, all they had to do was provide even a half decent alternative and we got the ROCm abomination",,comment
-"32gb is the minimum needed to run a decent AI model locally today. They can't have people doing that when openAI are paying them billions, on the assured assumption nobody will run their own models. 24GB limit puts local ai out of reach for newcomers who have cottoned on to the fact that we don't need openai or anthropic at all.",,comment
-"2x R9700 here, running qwen 3.8 27b fp8 at 140 t/s and 3500 t/s prefill. Enough for me",,comment
-"They're not discontinuing the 5090, they're just renaming it PRO and charging what the AI market was already paying for it.",,comment
+Creating a ""superior"" product is easy when you're a monopoly or you have absolute total control of standards that benefit you and harm your competition.",analysis,comment; ai-prelabel
+"I honestly hate AMD more than Nvidia for continuously fucking up their open source efforts.. they have handled it so bad it has to be some kind of inside sabotage job, all they had to do was provide even a half decent alternative and we got the ROCm abomination",hot_take,comment; ai-prelabel
+"32gb is the minimum needed to run a decent AI model locally today. They can't have people doing that when openAI are paying them billions, on the assured assumption nobody will run their own models. 24GB limit puts local ai out of reach for newcomers who have cottoned on to the fact that we don't need openai or anthropic at all.",hot_take,comment; ai-prelabel
+"2x R9700 here, running qwen 3.8 27b fp8 at 140 t/s and 3500 t/s prefill. Enough for me",analysis,comment; ai-prelabel
+"They're not discontinuing the 5090, they're just renaming it PRO and charging what the AI market was already paying for it.",hot_take,comment; ai-prelabel
 "As someone who vibecodes locally on gpu, buy your gpus now folks.
 
 The recent huge wave of mods, games, decomp/recomp etc. is just small shit compared to actual companies using local hardware to run their operations.
@@ -329,27 +313,27 @@ Also people hoping on some kind of ai bubble to pop. That's no longer the case. 
 
 Ai is just like computers in 80/90s. IT's not a bubble, just industry will have to grow to meet the demand.
 
-Also if you work in SAAS business i would advice looking to change job now to something that requires certificates. SAAS is pretty much dead in a year.",,comment
+Also if you work in SAAS business i would advice looking to change job now to something that requires certificates. SAAS is pretty much dead in a year.",hot_take,comment; ai-prelabel
 "No needs to be that desperate, there's always used parts to grab like V100.
 
 Just don't fall for big corps' trap, Cloud AI is definitely a bubble, and they're trying to prolong it.
 
-They want you to be desperate and sub to their services, then they can profit, but currently all of them are losing money.",,comment
-"AMD and Intel GPUs with high VRAM are sufficient for that. No need for overpriced NVIDIA cards at the moment, prices are way too high.",,comment
-Remember a couple weeks ago when all the 5090s disappeared overnight? My microcenter went from 25 cards to 0. I guess now we know why...,,comment
+They want you to be desperate and sub to their services, then they can profit, but currently all of them are losing money.",hot_take,comment; ai-prelabel
+"AMD and Intel GPUs with high VRAM are sufficient for that. No need for overpriced NVIDIA cards at the moment, prices are way too high.",hot_take,comment; ai-prelabel
+Remember a couple weeks ago when all the 5090s disappeared overnight? My microcenter went from 25 cards to 0. I guess now we know why...,reaction,comment; ai-prelabel
 "These 5090 went to China most likely. Might go via Malaysia, Indonesia or Mongolia, but they will end in China almost all the time.
 
-If you sell a used 5090 or 4090 online in Germany, it will be bought at any price and the names always look Chinese and that is going on for two years now.",,comment
-Meanwhile my local microcenter went from 2 pro 6000s to 25+ overnight.,,comment
+If you sell a used 5090 or 4090 online in Germany, it will be bought at any price and the names always look Chinese and that is going on for two years now.",hot_take,comment; ai-prelabel
+Meanwhile my local microcenter went from 2 pro 6000s to 25+ overnight.,reaction,comment; ai-prelabel
 "Sucks in the short term. However, when the bubble pops, that means we have more PROs to fill up our machines.
 
-If I can get x4 PROs into my tower, projects using Flash+ models will take hours, not days, to complete.",,comment
-"Don't count on any bubble popping. Even with the questionable business model from open AI and anthropic in terms of capex, there is still a shortage of datacenters and soon we will see massive silicon demand for all purpose robots",,comment
-"I think if you can get your hands on some gpu's, now is the time to get it. If they stop the 5090 then the 4090 and 3090 are going to dry up",,comment
-Have you shopped for a 3090 lately? Those are pretty dried up too.,,comment
+If I can get x4 PROs into my tower, projects using Flash+ models will take hours, not days, to complete.",hot_take,comment; ai-prelabel
+"Don't count on any bubble popping. Even with the questionable business model from open AI and anthropic in terms of capex, there is still a shortage of datacenters and soon we will see massive silicon demand for all purpose robots",hot_take,comment; ai-prelabel
+"I think if you can get your hands on some gpu's, now is the time to get it. If they stop the 5090 then the 4090 and 3090 are going to dry up",hot_take,comment; ai-prelabel
+Have you shopped for a 3090 lately? Those are pretty dried up too.,hot_take,comment; ai-prelabel
 "For a small data point I bought 2x 3090 last year for about 800 ea and bought 2x 3090 in the last month for 1100 each, now whatever is left in my local market is 1300+ or too far for me to drive.
 
-Meanwhile ebay is around 1400+ BIN it seems like for a 3090",,comment
+Meanwhile ebay is around 1400+ BIN it seems like for a 3090",analysis,comment; ai-prelabel
 "Yup. 3090 jumped up recently.
 
 5090 is a gaming card, but the main chip is far more valuable in enterprise products. Meanwhile, in gaming 5090 is more like a luxury item. 5080 with 24 GB will be the new peak there.
@@ -358,17 +342,104 @@ The DGX/RTX Spark and AMD 395 like systems, and similar, are the future of AI at
 
 Memory is the biggest limiting factor for inference, not compute. Put a 5070 like chip in a Spark, give it a lot of memory, and now you can run 100B-200B models on your desk.
 
-5090 has a lot of compute, but it was always memory starved for AI.",,comment
-"They were sold for the price of PRO GPUs anyway. At least normal GPUs were more affordable in the past. If they're not, there's no point in buying them vs pro gpus.",,comment
+5090 has a lot of compute, but it was always memory starved for AI.",hot_take,comment; ai-prelabel
+"They were sold for the price of PRO GPUs anyway. At least normal GPUs were more affordable in the past. If they're not, there's no point in buying them vs pro gpus.",hot_take,comment; ai-prelabel
 "give it a year and the chinese will flood the market with cheaper gpus, no worries.
-they already increased their market share 5 times from 2% to 10% in a year.",,comment
+they already increased their market share 5 times from 2% to 10% in a year.",analysis,comment; ai-prelabel
 "The problem is that the Chinese GpUs either have no CUDA support or need a translation layer in order to support it which reduces the performance.
 
-NVIDIA has a dominance not only in HW but SW also unfortunately.",,comment
+NVIDIA has a dominance not only in HW but SW also unfortunately.",hot_take,comment; ai-prelabel
 "eh Cuda can fuck itself. Other GPUs are already good enough for gaming, and for machine learning, TileLang is being developed https://github.com/tile-ai/tilelang
 
 The next GPU I get is not going to be an nvidia one.
 
-Will probably get downvoted to hell here, but nvidia isn't going to have a monopoly on the tech stack forever",,comment
-I assume they are all going to rtx pro 5500 if the rumor is true,,comment
-I need to go check how much can I sell my 4090 for,,comment
+Will probably get downvoted to hell here, but nvidia isn't going to have a monopoly on the tech stack forever",hot_take,comment; ai-prelabel
+I assume they are all going to rtx pro 5500 if the rumor is true,hot_take,comment; ai-prelabel
+I need to go check how much can I sell my 4090 for,reaction,comment; ai-prelabel
+they mean the hackers stole the keys to perform large scale distillation efforts,hot_take,comment; ai-prelabel
+"ah, yeah, that makes the most sense, but it feels like they're skirting their own failure to call it that...",hot_take,comment; ai-prelabel
+Doesn't OpenCode store keys locally? We got bigger problems if they're stealing our keys and we're lucky its just keys.,reaction,comment; ai-prelabel
+"I was confused as well, but i think this is what they mean. They should have worded it more clearly.",hot_take,comment; ai-prelabel
+The fact that Opencode only communicates on X and never replies customer emails says a lot about their communication skills.,hot_take,comment; ai-prelabel
+"This is about their Console platform which is a software as a service that you give keys, not the local thing you install on your machine",hot_take,comment; ai-prelabel
+“Distillation attack” may be the most obnoxious Anthropic doublespeak I have ever seen,hot_take,comment; ai-prelabel
+"It's bullshit/chaff, they were breached and they want to move the focus to ""bad guys being bad"" instead of ""hey why were you breached? what happened""",hot_take,comment; ai-prelabel
+But this only applies to their cloud service? For local users this doesn't seem to matter,hot_take,comment; ai-prelabel
+"Yeah, but you can be a local user and cloud user at the same time.",hot_take,comment; ai-prelabel
+Affected keys seem to be 3rd party provider keys. I had a very old Anthropic API key with about $1.50 that was definitely stolen.,analysis,comment; ai-prelabel
+"Could use a better title:
+
+Opencode breached, rotate keys and change to a different harness to be safe.",hot_take,comment; ai-prelabel
+"It has nothing to do with the harness.
+
+This was their hosted BYOK console service.
+
+It’s their “manage all your third party keys in one place” kind of service like Openrouter and others have. Often just used in team/orgs situations, too. Kind of like a hosted LiteLLM service.",analysis,comment; ai-prelabel
+"It shows the lack of security. Today it's their console service, tomorrow it's malware hiding in a new release.",hot_take,comment; ai-prelabel
+"There’s a very big difference between a public Internet service and an application like a harness.
+
+It might be a good reason to avoid Opencode services but the harness is not particularly likely to be any more vulnerable than Claude Code, Pi, or any other commonly used harness. All of them work pretty much the same way and are heavily vibecoded apps at this point.",hot_take,comment; ai-prelabel
+I have never seen a bigger target to get hacked. Surely they would have spent money for white hat hacking. Right? Right???,hot_take,comment; ai-prelabel
+"I do think that this happens in any hobby environment. Check out the ham radio or cars or what have you. Someone is going to be having something rivaling a professional setup for whatever interest they have.
+
+For you, you are likely underestimating local models and overestimating cloud. Can you set a task and walk away on a 9b model... no. I think you can not babysit as much with the qwen 3.8 27b model. Anything higher and you start to approach not needing to watch as much.",hot_take,comment; ai-prelabel
+"Yeah, a typical gaming setup is not going to have the VRAM and/or grunt required for any decently usable local LLM. Even a 5080 is marginal.",hot_take,comment; ai-prelabel
+"Both. It's all relative in the end.
+
+Don't feel bad, scrote. It would cost you far more than 6k to come anywhere close to an average cloud model.
+
+You can run open models by cloud APIs. Deepseek API is dirt-cheap if you use a non-regarded harness that doesn't break prompt cache during a session. I'm talking like $20 for a billion token. Less than the electricity cost of running a local model, let alone the hardware.
+
+Before people jump on me, yes I know this is a Local sub. I am an ideological supporter of local LLM, I just don't think anything smaller than the flagship model of GLM/Kimi/Deepseek is worth it for coding.",analysis,comment; ai-prelabel
+"6K of what? There are plenty V100 32GB out there for 500-800€, at least in the European markets. They all come from China, so it's probably similar in other areas.",analysis,comment; ai-prelabel
+pi feels like constructing a worse version of opencode from first principles to be completely honest,hot_take,comment; ai-prelabel
+"It's a harness with a lot of power and it gives the LLM a lot of power too. Just understand why that is would be my suggestion.
+
+I use it sometimes and I like it. I do monitor it to make sure the LLM isn't going off the rails.",hot_take,comment; ai-prelabel
+Pi will have less overhead than Hermes. What I do is ask Hermes to set up Pi and run any coding tasks through Pi.,hot_take,comment; ai-prelabel
+"Check oh my pi as well, I also started with pi but omp has already some stuff setup 😋✌️",hot_take,comment; ai-prelabel
+"I agree, use omp if you dont want to tweak extensions or use other users.. omp is great out of the box.",hot_take,comment; ai-prelabel
+"Codex is the best open source harness by a mile.
+
+Specifically for its auto safety classifier that works like Claude Code's. So you can  let something run autonomously without a high chance of nuking your machine.
+
+Use local models or whatever for agent and Luna or Haiku 5.5 for the safety classifier. Cost should be minimal because those models are so cheap on input tokens.",analysis,comment; ai-prelabel
+"domain-specific harness you build yourself... ok now that we've established you won't do that here are my recommendations, go through them in this exact order until you find one that fits your needs:
+
+oh-my-pi aka pi with a good set of 'defaults'
+
+pi but you have to do the work and actually get, write, or have a clanker write plugins to optimise for *your* usecase
+
+codex cli but you have to pinky promise that you will switch to pi or omp the moment Altman turns double evil
+
+dsh especially for webdev people
+
+kimi code/qwen code/grok build and basically all the rest of this type of harnesses
+----
+
+claude code",hot_take,comment; ai-prelabel
+"Ngl OpenChamber is the only thing keeping me on OpenCode. It’s so damn good, I use it as a general chat and coding harness. Vs code extension is super good too.
+
+I wish I could move to Pi, but last time I checked nothing comes close to OpenChamber in its polish and feature set",hot_take,comment; ai-prelabel
+"Orca might be a good transition, not as many of the opencode specific config ui but many other QOL features from OpenChamber. Well polished, and can use almost any agent harness and can orchestrate between them too.",hot_take,comment; ai-prelabel
+"I also use OpenChamber, and hence OpenCode as well. I don’t get what people have against it. It does the job I need it to do and does it well. I understand that some people want to tinker and tweak things to get exactly right, but for my needs I don’t need anything more than OpenCode. I’d rather spend my time working on my projects than building or tweaking harnesses.",hot_take,comment; ai-prelabel
+"I’ve loved Opencode. Never needed to tinker at all.
+But this news is concerning for sure",reaction,comment; ai-prelabel
+"FOMO mostly. I keep hearing how good Pi is, and there's (limited) benchmarks showing the same model in Pi getting higher task completion while spending way less tokens than Opencode.
+
+One thing I haven't seen is if Opencode with a similarly-minimal system prompt and pared down tools would achieve the same thing... Theoretically yes, but no data and I'm too lazy to test it mysself. One day",hot_take,comment; ai-prelabel
+"i need someone to sell me pi. i hear it is minimalist, so it has a few tools, and so i think it has less features than opencode. I don't see an advantage moving from opencode unless there are some hot configs in pi that i don't know about. I think for smaller local models pi is probably performing great and people aren't seeing why they they should switch.
+
+These are my own best guesses, i can't otherwise know why pi over opencode.",hot_take,comment; ai-prelabel
+"No it's not about the opencode app or cli, it's about the ""Console"" platform that's a SaaS. Tbh, I didn't know it existed an I am a huge opencode user",hot_take,comment; ai-prelabel
+ALOT of people here obviously still dont fully understand the offline portions of running LLMs local,hot_take,comment; ai-prelabel
+"If there is a risk, OpenCode should invalidate any keys and notify users. I didnt even know they had keys.",hot_take,comment; ai-prelabel
+"All the more the reason for open weights local LLM.
+
+No throttling or ""hidden swap"" of models. No daily/weekly limits. No exposed API keys.",hot_take,comment; ai-prelabel
+I'm a Go user and mid session an error preventing prompting and that I should change my API key and that log out and log in wouldn't work. Spent 5 minute trying to locate what API key they were talking about. Then logged out and in and that worked... Thanks for the heads up. Didn't have and provider key and didn't receive any email so I'm safe.,reaction,comment; ai-prelabel
+"I think GitHub has scanning collaboration with various models providers, if their commit and push the whole list it should auto-disable every single one of the keys",hot_take,comment; ai-prelabel
+Amen. I filled up my datasets with google's api back when they were basically an all you can eat buffet. You shouldn't count on the free lunch being forever. But there's something to be said for the locust life.,hot_take,comment; ai-prelabel
+"Spend 10$ and get your keys stolen, or spend 0 and get nothing stolen. Pick your poison",hot_take,comment; ai-prelabel
+Misleading title just for farm upvotes from all of the OpenCode haters in this sub,hot_take,comment; ai-prelabel
+"Today, it stopped accepting my keys in OpenCode. I gave up. Hopefully, it gets resolved.",reaction,comment; ai-prelabel
