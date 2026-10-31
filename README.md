@@ -187,7 +187,7 @@ of next unit's variance. -->
 - *What came back:*
 - *What I changed:* I stopped treating those rows as my own cold labels. They are recorded as AI pre-labels, and I am reading each one and correcting the ones I disagree with.
 
-**Pre-labelling disclosure:** 36 rows of labels.csv were pre-labeled by an AI coding assistant, not by me. I am reviewing and correcting every one, and their note column records this. No cold pass is claimed here until I have hand-labeled 20 rows myself without AI.
+**Pre-labelling disclosure:** All 182 rows in labels.csv were labeled by an AI coding assistant using my label definitions and decision rules. I did not review or correct them row by row, so the labels are unreviewed AI pre-labels. The note column marks them ai-prelabel. The model in results.json was trained on these labels.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
@@ -203,18 +203,21 @@ of next unit's variance. -->
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.286 | 0.571 | +0.286 |
+| Macro F1 | 0.228 | 0.242 | +0.015 |
+| F1 — `analysis` | 0.483 | 0.000 | -0.483 |
+| F1 — `hot_take` | 0.000 | 0.727 | +0.727 |
+| F1 — `reaction` | 0.200 | 0.000 | -0.200 |
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+I did not write a prediction before running the baseline, so I have no valid prediction to report.
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
+The trained model's higher accuracy (0.571 against 0.286) comes entirely from predicting hot_take for every post, and 16 of the 28 test posts are hot_take. Its macro F1 is 0.242 against the baseline's 0.228, a difference of 0.015 that is within noise on 28 posts. The baseline gets some analysis and reaction posts right but scores 0.000 on hot_take. Neither model has learned the three-way distinction, and fine-tuning on 126 posts with 58% hot_take added almost nothing beyond majority-class guessing. Reaction has only 3 posts in the test split, so its scores can swing on a single post. Baseline and trained model were scored on the same test_split.csv, and the device was mps.
 
 
 

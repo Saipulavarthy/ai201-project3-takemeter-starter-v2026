@@ -1,182 +1,172 @@
 {
   "model": "facebook/bart-large-mnli",
-  "n": 30,
+  "n": 28,
   "seed": 42,
-  "held_out": false,
+  "held_out": true,
   "used_definitions": true,
   "scores": {
-    "n": 30,
-    "accuracy": 0.6333333333333333,
-    "f1_macro": 0.4789833822091887,
+    "n": 28,
+    "accuracy": 0.2857142857142857,
+    "f1_macro": 0.22758620689655173,
     "per_label": {
       "analysis": {
-        "precision": 0.5789473684210527,
-        "recall": 0.9166666666666666,
-        "f1": 0.7096774193548387,
-        "support": 12
+        "precision": 0.35,
+        "recall": 0.7777777777777778,
+        "f1": 0.48275862068965514,
+        "support": 9
       },
       "hot_take": {
         "precision": 0.0,
         "recall": 0.0,
         "f1": 0.0,
-        "support": 7
+        "support": 16
       },
       "reaction": {
-        "precision": 0.7272727272727273,
-        "recall": 0.7272727272727273,
-        "f1": 0.7272727272727273,
-        "support": 11
+        "precision": 0.14285714285714285,
+        "recall": 0.3333333333333333,
+        "f1": 0.2,
+        "support": 3
       }
     }
   },
   "predictions": [
     {
-      "text": "Everyone says the new course is faster but the results don't show it. Median finish was 3:58 last year on the old route and 3:56 this year. Two minutes across 4,000 runners is noise, not a faster course.",
-      "gold": "analysis",
-      "predicted": "reaction"
-    },
-    {
-      "text": "My heart rate drift over 90 minutes dropped from 11% to 4% across a year of easy running with no change in pace. That's the aerobic base people talk about, and it took eleven months to show up in the numbers.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "This forum massively overrates mileage and underrates sleep.",
+      "text": "If you are talking about sketchy online listings from alibaba, I never saw anyone confirm this. If anything, it sounded like a classic scam.",
       "gold": "hot_take",
       "predicted": "reaction"
     },
     {
-      "text": "Well that was miserable. Twenty miles into a headwind and I'm questioning everything.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Three of my last five injuries came within two weeks of a shoe change. I'm not saying the shoes caused it, but I've stopped changing models in a build-up.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Absolutely buried myself on that tempo and I regret nothing.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Track workouts are for people who like feeling fast more than getting fast.",
+      "text": "I also should mentioned, GSQ RCO when it comes to webdev stuff is pretty much identical to its full expert brethren. So if you are mainly building ThreeJs, API, Web, React, etc then it is a good model. And ofc my personal use cases is kinda \"out of distribution\"\n\n\nThat animated video is are created by GSQ-RCO Coder using GSAP. and it is quite good",
       "gold": "hot_take",
       "predicted": "analysis"
     },
     {
-      "text": "Just watched someone in a full costume run past me at mile 20 and I've never felt worse about myself.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Compared finishing times for people who did the club's structured plan against those who self-coached. Structured group averaged 6 minutes faster, but they also averaged 8 more miles a week. The plan may just be a mileage delivery mechanism.",
+      "text": "Running PR reviews on a local model: what i learned building an open-source code reviewer\n\ni built lgtmaybe, an open-source code reviewer, and a lot of the work went into making it usable on a local model. Big files get reviewed a hunk at a time, and big diffs get split to fit the context window, so a 27B model copes fine. The default is five model calls per review, which is fine on one GPU. Which local models have you found actually good at code review? Keen to pick better defaults. https://github.com/MattJColes/lgtmaybe",
       "gold": "analysis",
       "predicted": "analysis"
     },
     {
-      "text": "Just signed up for my first marathon and I'm equal parts excited and terrified.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Got my entry! Been refreshing that page for forty minutes.",
-      "gold": "reaction",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Rained the entire four hours. Every single minute. I'm never doing this again and I've already entered next year.",
-      "gold": "reaction",
-      "predicted": "analysis"
-    },
-    {
-      "text": "A sub-3 marathon is more impressive than most people's entire athletic career and runners undersell it constantly.",
+      "text": "Ngl OpenChamber is the only thing keeping me on OpenCode. It\u2019s so damn good, I use it as a general chat and coding harness. Vs code extension is super good too.\n\nI wish I could move to Pi, but last time I checked nothing comes close to OpenChamber in its polish and feature set",
       "gold": "hot_take",
       "predicted": "analysis"
     },
     {
-      "text": "Checked the splits from the top 20 finishers. Eighteen of them ran the second half slower, average positive split of 3:40. On a course billed as net downhill. Something about the back section is harder than the elevation profile suggests.",
+      "text": "Idk why you think 9060-16 is low end. Thats a solid inference card. New architecture, 16GB memory. I bet it works wonders",
       "gold": "analysis",
       "predicted": "analysis"
     },
     {
-      "text": "Standing at the finish waiting for my sister and I'm more nervous than I was for my own race.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "The pace group at 3:30 finished in 3:34 last year and 3:31 the year before. If you're using them as a safety net, know that the net has a hole in it roughly every other year.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "The entry fee went from 45 to 72 over four years. Field size went from 3,200 to 3,400. Whatever the extra 27 is paying for, it isn't capacity.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Six of the last eight course records here were set in years when race-day temperature was under 10C. The two exceptions were both years with a strong tailwind on the back half. Weather explains more of the record book than the field does.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Just got back from the long run and I cannot feel my hands. Worth it though.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Carbon plates gave me about 2% on paper and roughly nothing in races. Three time trials in each shoe on the same loop, same month: 19:42/19:38/19:51 in the plates, 19:47/19:55/19:44 in the trainers. The overlap is bigger than the gap.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Woke up to snow on race morning. Absolutely gutted.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Twelve weeks of doubles versus twelve weeks of single runs at the same weekly volume. Doubles block: more consistent, no missed days, race 90 seconds faster. Singles block: two missed weeks from fatigue. For me the split makes the volume survivable.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "The entry fees are a scandal and everyone's decided to be fine with it.",
-      "gold": "hot_take",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Finished. Sat down on the kerb. Have not moved in ten minutes.",
+      "text": "Remember a couple weeks ago when all the 5090s disappeared overnight? My microcenter went from 25 cards to 0. I guess now we know why...",
       "gold": "reaction",
       "predicted": "analysis"
     },
     {
-      "text": "Strength training is a distraction for distance runners. The time is better spent running.",
+      "text": "Yeah, it's a no-brainer, it basically gives you a free quant level at no vram cost. I was surprised that unsloth and other quant providers doesn't already publish it this way, at least optionally.",
       "gold": "hot_take",
       "predicted": "analysis"
     },
     {
-      "text": "Legs are wrecked, back is fine, and I have no idea what that means.",
-      "gold": "reaction",
+      "text": "FOMO mostly. I keep hearing how good Pi is, and there's (limited) benchmarks showing the same model in Pi getting higher task completion while spending way less tokens than Opencode.\n\nOne thing I haven't seen is if Opencode with a similarly-minimal system prompt and pared down tools would achieve the same thing... Theoretically yes, but no data and I'm too lazy to test it mysself. One day",
+      "gold": "hot_take",
       "predicted": "reaction"
     },
     {
-      "text": "Elevation gain on the official profile is 340m. My watch says 410m and so do the four other people I've compared with. The profile is either smoothed or wrong, and it matters for pacing the last 10k.",
+      "text": "For a small data point I bought 2x 3090 last year for about 800 ea and bought 2x 3090 in the last month for 1100 each, now whatever is left in my local market is 1300+ or too far for me to drive.\n\nMeanwhile ebay is around 1400+ BIN it seems like for a 3090",
       "gold": "analysis",
-      "predicted": "analysis"
+      "predicted": "hot_take"
     },
     {
-      "text": "Racing more than twice a year is how you stay mediocre forever.",
+      "text": "haha, amd lol. i swaer amd doesn't even try to compete with nvidia anymore and just follows their leads",
       "gold": "hot_take",
       "predicted": "analysis"
     },
     {
-      "text": "Went back through my logs for every race where I hit my goal. All four had a three-week taper. The two where I tapered for ten days I missed by over two minutes. Small sample, but it's the only variable that lines up.",
+      "text": "If you think it's bad now, just wait till China invades Taiwan.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I'm a Go user and mid session an error preventing prompting and that I should change my API key and that log out and log in wouldn't work. Spent 5 minute trying to locate what API key they were talking about. Then logged out and in and that worked... Thanks for the heads up. Didn't have and provider key and didn't receive any email so I'm safe.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "These 5090 went to China most likely. Might go via Malaysia, Indonesia or Mongolia, but they will end in China almost all the time.\n\nIf you sell a used 5090 or 4090 online in Germany, it will be bought at any price and the names always look Chinese and that is going on for two years now.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I don't think Chinese companies have any less interest in price gouging than American ones do.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Codex is the best open source harness by a mile.\n\nSpecifically for its auto safety classifier that works like Claude Code's. So you can  let something run autonomously without a high chance of nuking your machine.\n\nUse local models or whatever for agent and Luna or Haiku 5.5 for the safety classifier. Cost should be minimal because those models are so cheap on input tokens.",
       "gold": "analysis",
       "predicted": "analysis"
     },
     {
-      "text": "Trail running has better people and worse racing. Both of those are obvious to anyone who's done both.",
+      "text": "it's almost like this ai rush hasn't attracted exactly the engineer types\n\nevergreen advice: ignore hype machine, don't trust clankers, always verify, test and benchmark on your own use cases",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "\u201cDistillation attack\u201d may be the most obnoxious Anthropic doublespeak I have ever seen",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Yeah, but you can be a local user and cloud user at the same time.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "the performance did not really change much based on which PLE Table is loaded, also for RAM/VRAM usage nothing changed really between shipped PLE/FP8/BF16 as the PLE Table sits on SSD.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "eh Cuda can fuck itself. Other GPUs are already good enough for gaming, and for machine learning, TileLang is being developed https://github.com/tile-ai/tilelang\n\nThe next GPU I get is not going to be an nvidia one.\n\nWill probably get downvoted to hell here, but nvidia isn't going to have a monopoly on the tech stack forever",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "This is the LocalLLaMA sub, king.\n\nPost your setup, poor, jank, or expensive overkill. I saw a guy the other day have 4 clustered mini PCs that were running Qwen 35b at 4 tok/s and he was super stoked about it.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "This is why monopolies are bad. Too few companies doing things like designing GPUs, manufacturing GPUs, manufacturing RAM, etc. it's also why closed APIs like CUDA have screwed the consumer. I refused to buy nVidia for their anti-consumer proprietary behavior for a decade and a half because of it. I refuse to buy Apple for similar. AMD is significantly more consumer friendly but that doesn't matter when their market share for GPUs has kept descending to an all time low.\n\nThis is why anti-trust laws exist. No single company should hold this much power.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I have bought modded VRAM cards from Alibaba. In private, the \"biggest\" card my trusted supplier offered me to buy was 4090 48GB. It was like half a year after the first \"5090 96gb\" listings appeared there. I prefer to think that extra-vram 5090 isn't available yet, otherwise they would've offered me to buy it.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Wait what? There is plenty of demand for the 5090. Just look at the MSRP vs what it actually costs to get one.\n\nThere's a clear indicator that demand is ~2x the MSRP.\n\nThe same for the RTX Pro series.\n\nThe core difference is the markup. The Pro series is manufactured end to end BY NVIDIA.\n\nYou don't buy an Asus RTX Pro.\n\nAll of that margin, dealing with 3rd parties, etc is pushed back to Nvidia profits and marked up.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "oops, that's what Grok told me or rather I didn't check, sorry!\n\nIn llama.cpp / mixed-quant repos, BF16 PLE sidecars (~95 GiB, mmap from SSD) are real and people measure a clear quality win. In Strata, the supported \u201cdon\u2019t quantize the table hard\u201d upgrade is --ple-gguf \u2192 FP8 (or Q8_0), not a documented BF16 95 GB GGUF loader. So: take the comment seriously (don\u2019t run with IQ4_NL PLE if you care about quality), but on Strata implement it as FP8 or Q8_0 via --ple-gguf, not by hunting for a BF16 file unless you confirm your exact Strata version accepts BF16 PLE rows.\n\nMy bad!",
+      "gold": "analysis",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Ha, finally some engineering talk. The original design was for en-grams to be fully stored in RAM, in practice it turns out as you say the call distribution is wildly lopsided unlike with experts in MoE models, so storing a fraction in RAM is more practical for scaled down use. In my own testing for example I found you can trivially store the image encoder in RAM, for the occasional image in a prompt you lose barely a few ms in encode, in return you free up VRAM without turning your model blind.\n\nThe fruit is quite low hanging for optimisations here.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Rumor is the 5090 can be modded to 64GB so I assume this also had an impact.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "comfyui requires you to have knowledge on how diffusion models work. like if you literally take a course or do some self study, it becomes much clearer. otherwise it's a jumble of variables and spaghetti lines that nobody explains anywhere. i was its worst hater several years ago, now i think it's pretty okay. at the very least, you might wanna ask an llm about how to use it and what some of the variables mean. Unlike llm serving which has been nicely simplified for the end user now, comfyui is designed to allow the user to define what the inputs and outputs are with much more flexibility. it's closer to n8n if you know what that is.\n\ni also agree with the other commenter that you're probably looking at the slop workflows in the first place. the default templates with 5 boxes and lines work out of the box. whatever huge workflow you're looking at, you can treat it like a badly vibecoded pr to llama.cpp. might do something neat, no guarantee to work at all on your hardware.",
       "gold": "hot_take",
       "predicted": "analysis"
     }
