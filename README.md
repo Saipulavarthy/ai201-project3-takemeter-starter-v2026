@@ -230,27 +230,30 @@ The trained model's higher accuracy (0.571 against 0.286) comes entirely from pr
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | >= 0.65 | 0.571 | 0.571 | 0.571 | MISSED |
+| 2. Every label F1 | >= 0.50 | 0.000 / 0.727 / 0.000 | 0.000 / 0.727 / 0.000 | 0.000 / 0.727 / 0.000 | MISSED |
+| 3. Label balance in labels.csv | none above 50%, none below 25% | 58% / 32% / 10% | 58% / 32% / 10% | 58% / 32% / 10% | MISSED |
+| 4. Agreement with staff | >= 21/30 | pending | pending | pending | pending |
+| 5. analysis predicted as reaction | <= 25% | 0/9 = 0% | 0/9 = 0% | 0/9 = 0% | MET (vacuous) |
+
+(F1 order in row 2 is analysis / hot_take / reaction. Row 3 order is hot_take / analysis / reaction.)
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
+| true \ predicted | analysis | hot_take | reaction |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **analysis** | 0 | 9 | 0 |
+| **hot_take** | 0 | 16 | 0 |
+| **reaction** | 0 | 3 | 0 |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
+9 analysis posts were called hot_take, and all 3 reaction posts went the same way. The model predicted hot_take for every one of the 28 test posts on all three seeds, so it never learned any boundary and its accuracy of 0.571 is just the hot_take share of the test split. The same matrix appeared on seeds 42, 7 and 2024, so the cause is the 58% hot_take share and the 18 reaction rows in the data, not the random split.
 
 
 
